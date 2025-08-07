@@ -207,8 +207,8 @@ class DemocraciaFake {
     if (logo) {
       // Usar las imágenes reales del directorio public
       const logoSrc = this.currentMode === 'mentira' 
-        ? '/header-mentira.png' 
-        : '/header-verdad.png';
+        ? 'header-mentira.png' 
+        : 'header-verdad.png';
       logo.src = logoSrc;
       logo.alt = `Democracia Fake - ${this.currentMode === 'mentira' ? 'Montaje' : 'Verdad'}`;
     }
