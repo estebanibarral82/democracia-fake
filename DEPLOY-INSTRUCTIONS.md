@@ -9,7 +9,7 @@
    - Haz clic en 'Create repository'
 
 2. CONECTAR REPOSITORIO LOCAL:
-   git remote add origin https://github.com/TU-USUARIO/democracia-fake.git
+   git remote add origin https://github.com/estebanibarral82/democracia-fake.git
    git branch -M main
    git push -u origin main
 
@@ -19,7 +19,7 @@
    - Guarda los cambios
 
 4. RESULTADO:
-   - URL del sitio: https://TU-USUARIO.github.io/democracia-fake/
+   - URL del sitio: https://estebanibarral82.github.io/democracia-fake/
    - El despliegue es automático con cada push a main
    - Tardará unos minutos en estar disponible la primera vez
 

@@ -36,7 +36,7 @@ Un sitio web interactivo que confronta la manipulación mediática en Chile con 
 
 ## 🌐 Demo
 
-[Ver sitio en vivo](https://tu-usuario.github.io/democracia-fake/)
+[Ver sitio en vivo](https://estebanibarral82.github.io/democracia-fake/)
 
 ## 💻 Desarrollo Local
 
