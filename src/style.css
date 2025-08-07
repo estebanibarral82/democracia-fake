@@ -1,0 +1,824 @@
+/* ================================
+   CSS VARIABLES & COLOR PALETTE
+   ================================ */
+:root {
+  /* Color Palette */
+  --negro-profundo: #090706;
+  --negro-oscuro: #120908;
+  --rojo-montaje: #E95040;
+  --blanco: #FFFFFF;
+  --gris-claro: #CCCCCC;
+  --gris-claro-alt: #AAA;
+  
+  /* Typography */
+  --font-title: 'Special Elite', 'Courier New', monospace; /* Similar to Special Gothic Condensed */
+  --font-mono: 'Chivo Mono', 'Courier New', monospace;
+  --font-body: 'Roboto', sans-serif;
+  --font-condensed: 'Special Gothic Condensed One', sans-serif;
+  
+  /* Current mode colors (default: Mentira) */
+  --bg-primary: var(--negro-profundo);
+  --bg-secondary: var(--negro-oscuro);
+  --text-primary: var(--blanco);
+  --text-secondary: var(--gris-claro);
+  --accent-color: var(--rojo-montaje);
+  --year-color: var(--rojo-montaje);
+  --title-color: var(--rojo-montaje);
+}
+
+/* ================================
+   GLOBAL STYLES
+   ================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Truth mode styles */
+body.verdad-mode {
+  --bg-primary: var(--negro-profundo);
+  --bg-secondary: var(--negro-oscuro);
+  --text-primary: var(--blanco);
+  --text-secondary: var(--gris-claro);
+  --accent-color: var(--blanco);
+  --year-color: var(--blanco);
+  --title-color: var(--blanco);
+}
+
+/* Mentira mode styles (explicit override to ensure red colors) */
+body:not(.verdad-mode) {
+  --bg-primary: var(--negro-profundo);
+  --bg-secondary: var(--negro-oscuro);
+  --text-primary: var(--blanco);
+  --text-secondary: var(--gris-claro);
+  --accent-color: var(--rojo-montaje);
+  --year-color: var(--rojo-montaje);
+  --title-color: var(--rojo-montaje);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ================================
+   HAMBURGER MENU
+   ================================ */
+.hamburger-menu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.hamburger-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  z-index: 1001;
+  position: relative;
+}
+
+.hamburger-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-primary);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-overlay.active {
+  opacity: 0.98;
+  visibility: visible;
+}
+
+.menu-items {
+  list-style: none;
+  text-align: center;
+}
+
+.menu-items li {
+  margin: 2rem 0;
+}
+
+.menu-items a {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.menu-items a:hover {
+  color: var(--accent-color);
+}
+
+/* ================================
+   HEADER & LOGO
+   ================================ */
+.header {
+  padding: 40px 0 60px 0;
+  text-align: center;
+  position: relative;
+  z-index: 110;
+}
+
+.logo-container {
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 110;
+}
+
+.logo {
+  max-width: 300px;
+  max-height: 200px;
+  width: 100%;
+  height: auto;
+  transition: all 0.5s ease;
+  position: relative;
+  z-index: 110;
+}
+
+.header-description {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+
+/* ================================
+   SECTIONS
+   ================================ */
+.section {
+  padding: 0 0 80px 0;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.verdad-mentira-section {
+  position: relative;
+}
+
+.verdad-mentira-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/ratones.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: grayscale(100%);
+  z-index: -2;
+}
+
+.verdad-mentira-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: -1;
+}
+
+.verdad-mentira-section .container {
+  position: relative;
+  z-index: 10;
+}
+
+.nueva-ley-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nueva-ley-section {
+  padding-top: 60px;
+}
+
+.nueva-ley-section .section-title {
+  margin-bottom: 2rem;
+}
+
+.nueva-ley-section .section-text {
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--font-condensed);
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.section-text {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 800px;
+}
+
+/* ================================
+   MODE SWITCH
+   ================================ */
+.mode-switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0;
+  gap: 2rem;
+  position: relative;
+  z-index: 110;
+}
+
+.switch-label {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.switch-label.active {
+  color: var(--accent-color);
+}
+
+/* Asegurar que el switch se vea rojo en modo mentira */
+body:not(.verdad-mode) .switch-label.active {
+  color: var(--rojo-montaje) !important;
+}
+
+.switch {
+  position: relative;
+  width: 80px;
+  height: 40px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--accent-color);
+  transition: 0.4s;
+  border-radius: 40px;
+}
+
+/* Asegurar que el slider se vea rojo en modo mentira */
+body:not(.verdad-mode) .slider {
+  background-color: var(--rojo-montaje) !important;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 32px;
+  width: 32px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--blanco);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--text-primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(40px);
+}
+
+/* Modo verdad: círculo negro para mayor contraste */
+body.verdad-mode input:checked + .slider:before {
+  background-color: var(--negro-profundo);
+}
+
+/* ================================
+   TIMELINE
+   ================================ */
+.timeline-container {
+  position: relative;
+  margin: 2rem 0;
+  z-index: 100;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 100;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: var(--gris-claro);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+  z-index: 102;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: var(--accent-color);
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+  height: 0%;
+  transition: height 0.3s ease;
+  z-index: 103;
+}
+
+.timeline.scrolling::before {
+  height: var(--scroll-progress, 0%);
+}
+
+.timeline-item {
+  padding: 3rem 0;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.6s ease;
+  z-index: 101;
+}
+
+.timeline-item.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.timeline-circle {
+  position: absolute;
+  left: 50%;
+  top: 3rem;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  background-color: var(--gris-claro);
+  border-radius: 50%;
+  z-index: 104;
+  transition: all 0.3s ease;
+}
+
+.timeline-circle.active {
+  background-color: var(--accent-color);
+  transform: translateX(-50%) scale(1.2);
+}
+
+.timeline-year {
+  font-family: var(--font-title);
+  font-size: 6rem;
+  font-weight: bold;
+  color: var(--year-color);
+  width: 560px;
+  text-align: right;
+  padding-right: 4rem;
+  flex-shrink: 0;
+  line-height: 1;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+  position: relative;
+  z-index: 105;
+}
+
+.timeline-content {
+  padding: 2rem 0;
+  margin-left: 4rem;
+  width: 560px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 105;
+}
+
+.timeline-content h3 {
+  font-family: var(--font-condensed);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--title-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+}
+
+.timeline-content p {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.timeline-cta {
+  background-color: var(--accent-color);
+  color: var(--negro-profundo);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 105;
+}
+
+/* Asegurar que el botón sea visible en modo verdad */
+body.verdad-mode .timeline-cta {
+  background-color: var(--blanco);
+  color: var(--negro-profundo);
+}
+
+/* Asegurar que los elementos sean rojos en modo mentira */
+body:not(.verdad-mode) .timeline-cta {
+  background-color: var(--rojo-montaje) !important;
+  color: var(--blanco) !important;
+}
+
+body:not(.verdad-mode) .timeline-year {
+  color: var(--rojo-montaje) !important;
+}
+
+body:not(.verdad-mode) .timeline-content h3 {
+  color: var(--rojo-montaje) !important;
+}
+
+body:not(.verdad-mode) .timeline-circle.active {
+  background-color: var(--rojo-montaje) !important;
+}
+
+body:not(.verdad-mode) .timeline::before {
+  background-color: var(--rojo-montaje) !important;
+}
+
+/* Reglas adicionales para asegurar color rojo en modo mentira */
+body:not(.verdad-mode) .switch-label.active,
+body:not(.verdad-mode) .timeline-year,
+body:not(.verdad-mode) .timeline-content h3 {
+  color: #E95040 !important;
+}
+
+body:not(.verdad-mode) .timeline-cta,
+body:not(.verdad-mode) .cta-button {
+  background-color: #E95040 !important;
+  color: #FFFFFF !important;
+}
+
+body:not(.verdad-mode) .timeline-circle.active,
+body:not(.verdad-mode) .timeline::before,
+body:not(.verdad-mode) .slider {
+  background-color: #E95040 !important;
+}
+
+body.verdad-mode .cta-button {
+  background-color: var(--blanco);
+  color: var(--negro-profundo);
+}
+
+body:not(.verdad-mode) .cta-button {
+  background-color: var(--rojo-montaje);
+  color: var(--blanco);
+}
+
+.timeline-cta:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ================================
+   CTA BUTTON
+   ================================ */
+.cta-container {
+  text-align: center;
+  padding: 1rem 0 3rem 0;
+}
+
+.cta-button {
+  background-color: var(--accent-color);
+  color: var(--negro-profundo);
+  border: none;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.2rem;
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 105;
+}
+
+/* Asegurar que el botón sea visible en ambos modos */
+body.verdad-mode .cta-button {
+  background-color: var(--blanco);
+  color: var(--negro-profundo);
+}
+
+body:not(.verdad-mode) .cta-button {
+  background-color: var(--rojo-montaje);
+  color: var(--blanco);
+}
+
+.cta-button:hover {
+  opacity: 0.8;
+  transform: translateY(-3px);
+}
+
+/* ================================
+   VIDEO MODAL
+   ================================ */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.video-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+}
+
+.video-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--blanco);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.video-modal-close:hover {
+  opacity: 0.7;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+.footer {
+  padding: 2rem 0;
+  background-color: var(--bg-secondary);
+  text-align: center;
+}
+
+.footer p {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+@media (max-width: 1200px) {
+  .timeline {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  
+  .timeline-year {
+    width: 400px;
+    font-size: 5rem;
+    padding-right: 3rem;
+  }
+  
+  body:not(.verdad-mode) .timeline-year {
+    color: #E95040 !important;
+  }
+  
+  .timeline-content {
+    width: 400px;
+    margin-left: 3rem;
+  }
+  
+  body:not(.verdad-mode) .timeline-content h3 {
+    color: #E95040 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-text, .header-description {
+    font-size: 1rem;
+  }
+  
+  .timeline {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  
+  .timeline::after {
+    left: 80px;
+  }
+  
+  .timeline::before {
+    left: 80px;
+  }
+  
+  body:not(.verdad-mode) .timeline::before {
+    background-color: #E95040 !important;
+  }
+  
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 0;
+  }
+  
+  .timeline-circle {
+    left: 80px;
+    top: 2rem;
+  }
+  
+  body:not(.verdad-mode) .timeline-circle.active {
+    background-color: #E95040 !important;
+  }
+  
+  .timeline-year {
+    font-size: 3rem;
+    width: 100%;
+    text-align: left;
+    padding-right: 0;
+    padding-bottom: 1rem;
+  }
+  
+  body:not(.verdad-mode) .timeline-year {
+    color: #E95040 !important;
+  }
+  
+  .timeline-content {
+    margin-left: 0;
+    width: calc(100% - 40px);
+    margin-left: 100px;
+    padding: 1rem 0;
+  }
+  
+  body:not(.verdad-mode) .timeline-content h3 {
+    color: #E95040 !important;
+  }
+  
+  .menu-items a {
+    font-size: 2rem;
+  }
+  
+  .logo {
+    max-width: 250px;
+    max-height: 150px;
+  }
+  
+  .mode-switch-container {
+    gap: 1rem;
+  }
+  
+  .switch-label {
+    font-size: 1.2rem;
+  }
+  
+  .video-modal-content {
+    width: 95%;
+  }
+  
+  .video-modal-close {
+    top: -35px;
+    font-size: 1.5rem;
+  }
+}
+
+/* ================================
+   FINAL OVERRIDE RULES FOR MENTIRA MODE
+   ================================ */
+/* Estas reglas están al final para máxima prioridad */
+
+body:not(.verdad-mode) .timeline-year {
+  color: #E95040 !important;
+}
+
+body:not(.verdad-mode) .timeline-content h3 {
+  color: #E95040 !important;
+}
+
+body:not(.verdad-mode) .timeline-circle.active {
+  background-color: #E95040 !important;
+}
+
+body:not(.verdad-mode) .timeline::before {
+  background-color: #E95040 !important;
+}
+
+body:not(.verdad-mode) .timeline-cta {
+  background-color: #E95040 !important;
+  color: #FFFFFF !important;
+}
+
+body:not(.verdad-mode) .slider {
+  background-color: #E95040 !important;
+}
+
+body:not(.verdad-mode) .switch-label.active {
+  color: #E95040 !important;
+}
