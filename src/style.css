@@ -482,6 +482,89 @@ body.verdad-mode input:checked + .slider:before {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
+/* ================================
+   TIMELINE INDIVIDUAL SWITCHES
+   ================================ */
+.timeline-switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 0.8rem;
+}
+
+.timeline-switch-label {
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.timeline-switch-label.active {
+  color: var(--accent-color);
+}
+
+/* Asegurar que las labels se vean rojas en modo mentira */
+body:not(.verdad-mode) .timeline-switch-label.active {
+  color: #E95040 !important;
+}
+
+.timeline-switch {
+  position: relative;
+  width: 50px;
+  height: 25px;
+}
+
+.timeline-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.timeline-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--accent-color);
+  transition: 0.3s;
+  border-radius: 25px;
+}
+
+/* Asegurar que el slider individual se vea rojo en modo mentira */
+body:not(.verdad-mode) .timeline-slider {
+  background-color: #E95040 !important;
+}
+
+.timeline-slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--blanco);
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.timeline-switch input:checked + .timeline-slider {
+  background-color: var(--text-primary);
+}
+
+.timeline-switch input:checked + .timeline-slider:before {
+  transform: translateX(25px);
+}
+
+/* En modo verdad: círculo negro para mayor contraste */
+body.verdad-mode .timeline-switch input:checked + .timeline-slider:before {
+  background-color: var(--negro-profundo);
+}
+
 .timeline-cta {
   background-color: var(--accent-color);
   color: var(--negro-profundo);

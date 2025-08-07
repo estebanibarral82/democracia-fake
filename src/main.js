@@ -84,6 +84,7 @@ const timelineData = {
 class DemocraciaFake {
   constructor() {
     this.currentMode = 'mentira'; // Default mode
+    this.individualModes = {}; // Estado individual de cada noticia
     this.init();
   }
 
@@ -218,32 +219,93 @@ class DemocraciaFake {
     const timeline = document.getElementById('timeline');
     if (!timeline) return;
 
-    const data = timelineData[this.currentMode];
-    
     timeline.innerHTML = '';
     
-    data.forEach((item, index) => {
+    // Usar los datos de ambos modos para crear la estructura completa
+    const mentiraData = timelineData['mentira'];
+    
+    mentiraData.forEach((item, index) => {
       const timelineItem = document.createElement('div');
       timelineItem.className = 'timeline-item';
       timelineItem.setAttribute('data-year', item.year);
+      
+      // Determinar el modo actual para esta noticia específica
+      const itemMode = this.individualModes[item.year] || this.currentMode;
+      const currentData = timelineData[itemMode][index];
       
       timelineItem.innerHTML = `
         <div class="timeline-circle"></div>
         <div class="timeline-year">${item.year}</div>
         <div class="timeline-content">
-          <h3>${item.title}</h3>
-          <p>${item.description}</p>
-          <button class="timeline-cta" data-year="${item.year}">${item.cta}</button>
+          <div class="timeline-switch-container">
+            <span class="timeline-switch-label left ${itemMode === 'mentira' ? 'active' : ''}">MENTIRA</span>
+            <label class="timeline-switch">
+              <input type="checkbox" ${itemMode === 'verdad' ? 'checked' : ''} data-year="${item.year}">
+              <span class="timeline-slider"></span>
+            </label>
+            <span class="timeline-switch-label right ${itemMode === 'verdad' ? 'active' : ''}">VERDAD</span>
+          </div>
+          <h3>${currentData.title}</h3>
+          <p>${currentData.description}</p>
+          <button class="timeline-cta" data-year="${item.year}">${currentData.cta}</button>
         </div>
       `;
       
       timeline.appendChild(timelineItem);
     });
 
+    // Configurar event listeners para los switches individuales
+    this.setupTimelineSwitches();
+
     // Reset animations
     setTimeout(() => {
       this.initScrollAnimations();
     }, 100);
+  }
+
+  setupTimelineSwitches() {
+    const timelineSwitches = document.querySelectorAll('.timeline-switch input');
+    
+    timelineSwitches.forEach(switchInput => {
+      switchInput.addEventListener('change', (e) => {
+        const year = e.target.getAttribute('data-year');
+        const isVerdad = e.target.checked;
+        this.toggleIndividualMode(year, isVerdad);
+      });
+    });
+  }
+
+  toggleIndividualMode(year, isVerdad) {
+    // Actualizar el estado individual de esta noticia
+    this.individualModes[year] = isVerdad ? 'verdad' : 'mentira';
+    
+    // Encontrar el timeline item específico
+    const timelineItem = document.querySelector(`[data-year="${year}"]`);
+    if (!timelineItem) return;
+
+    // Obtener los datos para este año específico
+    const mentiraIndex = timelineData['mentira'].findIndex(item => item.year === year);
+    if (mentiraIndex === -1) return;
+
+    const currentData = timelineData[isVerdad ? 'verdad' : 'mentira'][mentiraIndex];
+    
+    // Actualizar el contenido sin re-renderizar todo el timeline
+    const content = timelineItem.querySelector('.timeline-content');
+    const switchContainer = content.querySelector('.timeline-switch-container');
+    
+    // Actualizar labels del switch
+    const leftLabel = switchContainer.querySelector('.timeline-switch-label.left');
+    const rightLabel = switchContainer.querySelector('.timeline-switch-label.right');
+    
+    leftLabel.classList.toggle('active', !isVerdad);
+    rightLabel.classList.toggle('active', isVerdad);
+    
+    // Actualizar contenido
+    content.querySelector('h3').textContent = currentData.title;
+    content.querySelector('p').textContent = currentData.description;
+    content.querySelector('.timeline-cta').textContent = currentData.cta;
+    
+    console.log(`Timeline item ${year} switched to: ${isVerdad ? 'verdad' : 'mentira'}`);
   }
 
   openVideoModal(year) {
