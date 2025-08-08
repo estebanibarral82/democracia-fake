@@ -8,37 +8,43 @@ const timelineData = {
       year: "1973",
       title: "Plan Z: la UP planea masacrar a 5 000 opositores",
       description: "La prensa oficial reproduce un supuesto documento militar que atribuye al gobierno de Allende un plan de autogolpe para el 19 de septiembre, con listas de enemigos y croquis de cuarteles intervenidos.",
-      cta: "VER MENTIRA"
+      cta: "VER MENTIRA",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
     {
       year: "1975",
       title: "Exterminados como ratones: el MIR se depura con 119 muertos",
       description: "El diario La Segunda afirma que los militantes desaparecidos murieron en peleas internas en el extranjero, basándose en revistas que nadie ha logrado encontrar en los países mencionados.",
-      cta: "VER MENTIRA"
+      cta: "VER MENTIRA",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
     {
       year: "2017",
       title: "Chats de WhatsApp prueban red terrorista mapuche",
       description: "Capturas de pantalla presentadas por Carabineros se emiten en noticieros como prueba irrefutable de coordinación de ataques. Ocho comuneros son detenidos en horario estelar.",
-      cta: "VER MENTIRA"
+      cta: "VER MENTIRA",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
     {
       year: "2018",
       title: "Comunero armado cae en enfrentamiento con GOPE",
       description: "La versión oficial acusa a Camilo Catrillanca de participar en un robo y disparar contra el GOPE. Se afirma que no hay registro audiovisual del operativo.",
-      cta: "VER MENTIRA"
+      cta: "VER MENTIRA",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
     {
       year: "2020",
       title: "Detenido con bidón de bencina es el autor de incendio en Metro Baquedano",
       description: "Imágenes de un joven reducido por Carabineros se viralizan como prueba del ataque. Medios lo presentan como un manifestante violento sorprendido con acelerantes.",
-      cta: "VER MENTIRA"
+      cta: "VER MENTIRA",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
     {
       year: "2021",
       title: "Fans de K-pop organizan atentados y saqueos durante protestas",
       description: "En redes sociales y noticieros se acusa a comunidades K-pop de usar sus plataformas para coordinar hechos de violencia durante el estallido social.",
-      cta: "VER MENTIRA"
+      cta: "VER MENTIRA",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     }
   ],
   verdad: [
@@ -46,102 +52,138 @@ const timelineData = {
       year: "1973",
       title: "Militares difunden plan sin respaldo documental ni fuentes verificables",
       description: "La Junta informa de un plan atribuido a la UP, pero no exhibe originales ni autores. Partidos opositores y medios extranjeros no encuentran pruebas que sustenten su existencia.",
-      cta: "VER VERDAD"
+      cta: "VER VERDAD",
+      videoUrl: "https://www.youtube.com/embed/jNQXAC9IVRw"
     },
     {
       year: "1975",
-      title: "Revistas extranjeras citadas no existen; lista corresponde a detenidos en Chile",
-      description: "Investigaciones periodísticas demuestran que las publicaciones no tienen registro. Organismos de derechos humanos vinculan a los 119 nombres con centros de detención chilenos.",
-      cta: "VER VERDAD"
+      title: "Detenidos desaparecidos por razones políticas son eliminados por la DINA",
+      description: "Organismos de derechos humanos documentan desapariciones sistemáticas de opositores. La justicia confirma que fueron víctimas del aparato represivo de la dictadura.",
+      cta: "VER VERDAD",
+      videoUrl: "https://www.youtube.com/embed/jNQXAC9IVRw"
     },
     {
       year: "2017",
-      title: "Mensajes sin peritaje independiente ni validación técnica",
-      description: "Expertos exigen claves hash y metadatos para validar los chats. La fiscalía advierte que los teléfonos fueron manipulados sin supervisión judicial ni acceso de la defensa.",
-      cta: "VER VERDAD"
+      title: "Carabineros produce montaje con capturas falsas",
+      description: "La justicia determina que las imágenes fueron manipuladas digitalmente. Los ocho comuneros detenidos son liberados sin cargos tras demostrarse la adulteración.",
+      cta: "VER VERDAD",
+      videoUrl: "https://www.youtube.com/embed/jNQXAC9IVRw"
     },
     {
       year: "2018",
-      title: "Videos ocultos muestran a Catrillanca desarmado; disparos provienen de Carabineros",
-      description: "El estudiante que lo acompañaba desmiente la versión. Las cámaras corporales de la patrulla registraron los hechos, pero los archivos fueron ocultados o eliminados.",
-      cta: "VER VERDAD"
+      title: "Camilo Catrillanca muere por disparo de Carabineros sin estar armado",
+      description: "Peritajes balísticos y testigos confirman que el comunero murió por un disparo del GOPE. No participaba en ningún robo y no portaba armas. Videos del operativo fueron destruidos.",
+      cta: "VER VERDAD",
+      videoUrl: "https://www.youtube.com/embed/jNQXAC9IVRw"
     },
     {
       year: "2020",
-      title: "Joven detenido no estaba en Metro; pruebas no vinculan presencia ni incendio",
-      description: "Reportes confirman que fue arrestado en superficie y no se le hallaron materiales inflamables. Fiscalía no logra acreditar su participación en el siniestro.",
-      cta: "VER VERDAD"
+      title: "Joven es detenido arbitrariamente; incendio tiene otro origen",
+      description: "Investigaciones posteriores demuestran que el incendio tuvo causas técnicas no relacionadas con el detenido. El joven es liberado sin cargos tras comprobarse su inocencia.",
+      cta: "VER VERDAD",
+      videoUrl: "https://www.youtube.com/embed/jNQXAC9IVRw"
     },
     {
       year: "2021",
-      title: "No hay evidencia de participación violenta; fans promovieron causas solidarias",
-      description: "Análisis de redes descarta llamados a la violencia. Grupos de fans se enfocaron en campañas de ayuda y difusión de derechos humanos, sin vínculo con disturbios.",
-      cta: "VER VERDAD"
+      title: "Fans de K-pop apoyan causas pacíficas y derechos humanos",
+      description: "La comunidad K-pop chilena demuestra su compromiso con la no violencia y el apoyo a manifestaciones pacíficas por la justicia social.",
+      cta: "VER VERDAD",
+      videoUrl: "https://www.youtube.com/embed/jNQXAC9IVRw"
     }
   ]
 };
 
+// Main class for the application
 class DemocraciaFake {
   constructor() {
     this.currentMode = 'mentira'; // Default mode
-    this.individualModes = {}; // Estado individual de cada noticia
+    this.currentModalYear = null; // Para el modal
+    this.currentModalMode = 'mentira'; // Para el switch del modal
     this.init();
   }
 
   init() {
+    console.log('Initializing DemocraciaFake app...');
     this.setupEventListeners();
     this.renderTimeline();
     this.initScrollAnimations();
     this.updateLogo();
     this.initSwitchLabels();
     this.initScrollProgress();
+    this.initFloatingSwitch();
+    this.initDecadesTimeline();
+    this.initModalFunctionality();
+    
+    // Test function para debugging
+    window.testSwitch = (value) => {
+      console.log('Manual switch test:', value);
+      this.toggleMode(value);
+    };
+    
+    console.log('DemocraciaFake app initialized successfully');
+    console.log('Use window.testSwitch(true/false) to test switches manually');
   }
 
   initSwitchLabels() {
-    // Inicializar labels del switch
+    console.log('Initializing switch labels...');
+    
+    // Inicializar labels del switch principal
     const leftLabel = document.querySelector('.switch-label.left');
     const rightLabel = document.querySelector('.switch-label.right');
+    
+    console.log('Main switch labels found:', leftLabel, rightLabel);
     
     if (leftLabel && rightLabel) {
       leftLabel.classList.add('active'); // Mentira está activo por defecto
       rightLabel.classList.remove('active');
     }
+
+    // Inicializar labels del switch flotante
+    const floatingLeftLabel = document.querySelector('.floating-switch-label.left');
+    const floatingRightLabel = document.querySelector('.floating-switch-label.right');
+    
+    console.log('Floating switch labels found:', floatingLeftLabel, floatingRightLabel);
+    
+    if (floatingLeftLabel && floatingRightLabel) {
+      floatingLeftLabel.classList.add('active');
+      floatingRightLabel.classList.remove('active');
+    }
   }
 
   setupEventListeners() {
-    // Hamburger menu
-    const hamburgerToggle = document.getElementById('hamburgerToggle');
-    const menuOverlay = document.getElementById('menuOverlay');
+    console.log('Setting up event listeners...');
     
-    hamburgerToggle?.addEventListener('click', () => {
-      hamburgerToggle.classList.toggle('active');
-      menuOverlay.classList.toggle('active');
-    });
-
-    // Close menu when clicking on a link
-    const menuLinks = document.querySelectorAll('.menu-items a');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburgerToggle.classList.remove('active');
-        menuOverlay.classList.remove('active');
-      });
-    });
-
-    // Mode switch
-    const switchInput = document.getElementById('switchInput');
-    switchInput?.addEventListener('change', (e) => {
-      console.log('Switch changed:', e.target.checked);
-      this.toggleMode(e.target.checked);
-    });
-
-    // También agregar click listener al contenedor del switch para mejor UX
-    const switchContainer = document.querySelector('.switch');
-    switchContainer?.addEventListener('click', (e) => {
-      if (e.target !== switchInput) {
-        switchInput.checked = !switchInput.checked;
-        this.toggleMode(switchInput.checked);
+    // Usar SOLO event delegation para todos los switches - más confiable
+    document.addEventListener('change', (e) => {
+      console.log('Change event detected:', e.target.id, e.target.checked);
+      
+      if (e.target.id === 'switchInput') {
+        console.log('Main switch changed via delegation:', e.target.checked);
+        e.stopPropagation(); // Prevenir duplicación
+        this.toggleMode(e.target.checked);
+      } else if (e.target.id === 'floatingSwitchInput') {
+        console.log('Floating switch changed via delegation:', e.target.checked);
+        e.stopPropagation(); // Prevenir duplicación
+        this.toggleMode(e.target.checked);
+      } else if (e.target.id === 'modalSwitchInput') {
+        console.log('Modal switch changed via delegation:', e.target.checked);
+        e.stopPropagation(); // Prevenir duplicación
+        this.currentModalMode = e.target.checked ? 'verdad' : 'mentira';
+        this.updateModalContent();
+        this.updateModalSwitchLabels();
       }
     });
+
+    // Verificar que los elementos existen pero NO agregar listeners directos
+    const switchInput = document.getElementById('switchInput');
+    const floatingSwitchInput = document.getElementById('floatingSwitchInput');
+    
+    console.log('Switch elements check:', {
+      mainSwitch: !!switchInput,
+      floatingSwitch: !!floatingSwitchInput
+    });
+
+    // Modal switch - NO registrar aquí, se registra en openVideoModal
 
     // CTA button
     const firmaButton = document.getElementById('firmaButton');
@@ -161,40 +203,61 @@ class DemocraciaFake {
     // Video modal event listeners
     const videoModal = document.getElementById('videoModal');
     const videoModalClose = document.getElementById('videoModalClose');
+    const videoModalOverlay = document.getElementById('videoModalOverlay');
     
     videoModalClose?.addEventListener('click', () => {
-      this.closeVideoModal();
+      this.closeModal();
+    });
+
+    videoModalOverlay?.addEventListener('click', () => {
+      this.closeModal();
     });
 
     videoModal?.addEventListener('click', (e) => {
       if (e.target === videoModal) {
-        this.closeVideoModal();
+        this.closeModal();
       }
     });
 
     // Escape key to close modal
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        this.closeVideoModal();
+        this.closeModal();
       }
     });
   }
 
   toggleMode(isVerdad) {
-    console.log('Toggling mode to:', isVerdad ? 'verdad' : 'mentira');
-    this.currentMode = isVerdad ? 'verdad' : 'mentira';
+    console.log('toggleMode called with:', isVerdad, 'current mode:', this.currentMode);
+    
+    const newMode = isVerdad ? 'verdad' : 'mentira';
+    if (this.currentMode === newMode) {
+      console.log('Mode unchanged, skipping update');
+      return; // Evitar updates innecesarios
+    }
+    
+    this.currentMode = newMode;
+    console.log('Mode changed to:', this.currentMode);
     
     // Toggle body class
     document.body.classList.toggle('verdad-mode', isVerdad);
     
-    // Update switch labels
-    const leftLabel = document.querySelector('.switch-label.left');
-    const rightLabel = document.querySelector('.switch-label.right');
+    // Sincronizar TODOS los switches SIN disparar events (usar propiedades directas)
+    const mainSwitch = document.getElementById('switchInput');
+    const floatingSwitch = document.getElementById('floatingSwitchInput');
     
-    if (leftLabel && rightLabel) {
-      leftLabel.classList.toggle('active', !isVerdad);
-      rightLabel.classList.toggle('active', isVerdad);
+    // Temporarily disable event listeners para evitar loops
+    if (mainSwitch && mainSwitch.checked !== isVerdad) {
+      console.log('Syncing main switch to:', isVerdad);
+      mainSwitch.checked = isVerdad;
     }
+    if (floatingSwitch && floatingSwitch.checked !== isVerdad) {
+      console.log('Syncing floating switch to:', isVerdad);
+      floatingSwitch.checked = isVerdad;
+    }
+    
+    // Update all switch labels
+    this.updateAllSwitchLabels(isVerdad);
     
     // Update logo
     this.updateLogo();
@@ -203,130 +266,253 @@ class DemocraciaFake {
     this.renderTimeline();
   }
 
+  updateAllSwitchLabels(isVerdad) {
+    // Update main switch labels
+    const leftLabel = document.querySelector('.switch-label.left');
+    const rightLabel = document.querySelector('.switch-label.right');
+    
+    if (leftLabel && rightLabel) {
+      leftLabel.classList.toggle('active', !isVerdad);
+      rightLabel.classList.toggle('active', isVerdad);
+    }
+
+    // Update floating switch labels
+    const floatingLeftLabel = document.querySelector('.floating-switch-label.left');
+    const floatingRightLabel = document.querySelector('.floating-switch-label.right');
+    
+    if (floatingLeftLabel && floatingRightLabel) {
+      floatingLeftLabel.classList.toggle('active', !isVerdad);
+      floatingRightLabel.classList.toggle('active', isVerdad);
+    }
+  }
+
   updateLogo() {
     const logo = document.getElementById('mainLogo');
     if (logo) {
-      // Usar las imágenes reales del directorio public
-      const logoSrc = this.currentMode === 'mentira' 
-        ? 'header-mentira.png' 
-        : 'header-verdad.png';
-      logo.src = logoSrc;
-      logo.alt = `Democracia Fake - ${this.currentMode === 'mentira' ? 'Montaje' : 'Verdad'}`;
+      if (this.currentMode === 'verdad') {
+        logo.src = 'header-verdad.png';
+        logo.alt = 'Democracia Fake - Verdad';
+      } else {
+        logo.src = 'header-mentira.png';
+        logo.alt = 'Democracia Fake - Montaje';
+      }
     }
   }
 
   renderTimeline() {
-    const timeline = document.getElementById('timeline');
-    if (!timeline) return;
+    const timelineContainer = document.getElementById('timeline');
+    if (!timelineContainer) return;
 
-    timeline.innerHTML = '';
+    const currentData = timelineData[this.currentMode];
     
-    // Usar los datos de ambos modos para crear la estructura completa
-    const mentiraData = timelineData['mentira'];
+    timelineContainer.innerHTML = '';
     
-    mentiraData.forEach((item, index) => {
+    // Create timeline items
+    currentData.forEach((item, index) => {
       const timelineItem = document.createElement('div');
       timelineItem.className = 'timeline-item';
       timelineItem.setAttribute('data-year', item.year);
       
-      // Determinar el modo actual para esta noticia específica
-      const itemMode = this.individualModes[item.year] || this.currentMode;
-      const currentData = timelineData[itemMode][index];
-      
       timelineItem.innerHTML = `
-        <div class="timeline-circle"></div>
+        <div class="timeline-circle ${index === 0 ? 'active' : ''}"></div>
         <div class="timeline-year">${item.year}</div>
         <div class="timeline-content">
-          <div class="timeline-switch-container">
-            <span class="timeline-switch-label left ${itemMode === 'mentira' ? 'active' : ''}">MENTIRA</span>
-            <label class="timeline-switch">
-              <input type="checkbox" ${itemMode === 'verdad' ? 'checked' : ''} data-year="${item.year}">
-              <span class="timeline-slider"></span>
-            </label>
-            <span class="timeline-switch-label right ${itemMode === 'verdad' ? 'active' : ''}">VERDAD</span>
-          </div>
-          <h3>${currentData.title}</h3>
-          <p>${currentData.description}</p>
-          <button class="timeline-cta" data-year="${item.year}">${currentData.cta}</button>
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+          <button class="timeline-cta">${item.cta}</button>
         </div>
       `;
       
-      timeline.appendChild(timelineItem);
+      timelineContainer.appendChild(timelineItem);
     });
 
-    // Configurar event listeners para los switches individuales
-    this.setupTimelineSwitches();
-
-    // Reset animations
-    setTimeout(() => {
-      this.initScrollAnimations();
-    }, 100);
+    // Re-initialize scroll animations for new content
+    this.initScrollAnimations();
   }
 
-  setupTimelineSwitches() {
-    const timelineSwitches = document.querySelectorAll('.timeline-switch input');
+  initFloatingSwitch() {
+    const floatingSwitchNav = document.getElementById('floatingSwitchNav');
     
-    timelineSwitches.forEach(switchInput => {
-      switchInput.addEventListener('change', (e) => {
-        const year = e.target.getAttribute('data-year');
-        const isVerdad = e.target.checked;
-        this.toggleIndividualMode(year, isVerdad);
+    if (!floatingSwitchNav) {
+      console.error('Floating switch nav element not found');
+      return;
+    }
+    
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const timelineSection = document.querySelector('.verdad-mentira-section');
+      
+      if (timelineSection) {
+        const timelineSectionTop = timelineSection.offsetTop;
+        
+        // Mostrar el switch flotante cuando llegue a la sección timeline (primer año)
+        if (scrollY >= timelineSectionTop - 200) {
+          floatingSwitchNav.classList.add('visible');
+        } else {
+          floatingSwitchNav.classList.remove('visible');
+        }
+      }
+    });
+  }
+
+  initDecadesTimeline() {
+    const decadesContainer = document.querySelector('.decades-items');
+    if (!decadesContainer) return;
+
+    // Definir todas las décadas desde los 70s hasta los 20s
+    const decades = [
+      { decade: 1970, label: "70s", years: ["1973", "1975"] },
+      { decade: 1980, label: "80s", years: [] }, // Sin contenido pero visible
+      { decade: 1990, label: "90s", years: [] }, // Sin contenido pero visible
+      { decade: 2000, label: "00s", years: [] }, // Sin contenido pero visible
+      { decade: 2010, label: "10s", years: ["2017", "2018"] },
+      { decade: 2020, label: "20s", years: ["2020", "2021"] }
+    ];
+    
+    // Limpiar contenedor
+    decadesContainer.innerHTML = '';
+    
+    // Crear elementos para cada década
+    decades.forEach((decadeData, index) => {
+      const decadeItem = document.createElement('div');
+      decadeItem.className = 'decade-item';
+      decadeItem.setAttribute('data-decade', decadeData.decade);
+      
+      // Añadir clase especial si no tiene contenido
+      if (decadeData.years.length === 0) {
+        decadeItem.classList.add('no-content');
+      }
+      
+      // Círculo de la década
+      const decadeCircle = document.createElement('div');
+      decadeCircle.className = `decade-circle ${index === 0 ? 'active' : ''}`;
+      
+      // Label de la década
+      const decadeLabel = document.createElement('div');
+      decadeLabel.className = 'decade-label';
+      decadeLabel.textContent = decadeData.label;
+      
+      decadeItem.appendChild(decadeCircle);
+      decadeItem.appendChild(decadeLabel);
+      
+      // Event listener para scroll solo si tiene contenido
+      if (decadeData.years.length > 0) {
+        decadeItem.addEventListener('click', () => {
+          this.scrollToDecade(decadeData.decade, decadeData.years[0]);
+          
+          // Actualizar círculo activo
+          document.querySelectorAll('.decade-circle').forEach(circle => circle.classList.remove('active'));
+          decadeCircle.classList.add('active');
+        });
+        decadeItem.style.cursor = 'pointer';
+      } else {
+        // Para décadas sin contenido, mostrar como deshabilitado
+        decadeItem.style.cursor = 'not-allowed';
+        decadeItem.style.opacity = '0.5';
+      }
+      
+      decadesContainer.appendChild(decadeItem);
+    });
+
+    // Mostrar el timeline de décadas solo cuando empiece la sección timeline
+    this.initDecadesTimelineVisibility();
+
+    // Scroll listener para la timeline de décadas
+    window.addEventListener('scroll', () => {
+      this.updateDecadesTimeline();
+    });
+  }
+
+  initDecadesTimelineVisibility() {
+    const decadesTimeline = document.querySelector('.decades-timeline');
+    const timelineSection = document.querySelector('.verdad-mentira-section');
+    
+    if (!decadesTimeline || !timelineSection) return;
+    
+    window.addEventListener('scroll', () => {
+      const timelineSectionTop = timelineSection.offsetTop;
+      const scrollY = window.scrollY;
+      
+      // Mostrar el timeline de décadas cuando llegue a la sección timeline
+      if (scrollY >= timelineSectionTop - 100) {
+        decadesTimeline.classList.add('visible');
+      } else {
+        decadesTimeline.classList.remove('visible');
+      }
+    });
+  }
+
+  scrollToDecade(decade, firstYear) {
+    // Encontrar el primer elemento de esa década
+    const timelineItem = document.querySelector(`[data-year="${firstYear}"]`);
+    if (timelineItem) {
+      timelineItem.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
       });
+    }
+  }
+
+  updateDecadesTimeline() {
+    const decadeItems = document.querySelectorAll('.decade-item');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const windowHeight = window.innerHeight;
+    
+    let currentDecade = null;
+    
+    // Determinar qué década está visible
+    timelineItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      const year = parseInt(item.getAttribute('data-year'));
+      
+      if (rect.top < windowHeight * 0.6 && rect.bottom > windowHeight * 0.4) {
+        if (year >= 1970 && year < 1980) currentDecade = 1970;
+        else if (year >= 2010 && year < 2020) currentDecade = 2010;
+        else if (year >= 2020 && year < 2030) currentDecade = 2020;
+      }
+    });
+    
+    // Actualizar círculos activos
+    decadeItems.forEach(item => {
+      const decade = parseInt(item.getAttribute('data-decade'));
+      const circle = item.querySelector('.decade-circle');
+      
+      if (decade === currentDecade) {
+        circle.classList.add('active');
+      } else {
+        circle.classList.remove('active');
+      }
     });
   }
 
-  toggleIndividualMode(year, isVerdad) {
-    // Actualizar el estado individual de esta noticia
-    this.individualModes[year] = isVerdad ? 'verdad' : 'mentira';
-    
-    // Encontrar el timeline item específico
-    const timelineItem = document.querySelector(`[data-year="${year}"]`);
-    if (!timelineItem) return;
-
-    // Obtener los datos para este año específico
-    const mentiraIndex = timelineData['mentira'].findIndex(item => item.year === year);
-    if (mentiraIndex === -1) return;
-
-    const currentData = timelineData[isVerdad ? 'verdad' : 'mentira'][mentiraIndex];
-    
-    // Actualizar el contenido sin re-renderizar todo el timeline
-    const content = timelineItem.querySelector('.timeline-content');
-    const switchContainer = content.querySelector('.timeline-switch-container');
-    
-    // Actualizar labels del switch
-    const leftLabel = switchContainer.querySelector('.timeline-switch-label.left');
-    const rightLabel = switchContainer.querySelector('.timeline-switch-label.right');
-    
-    leftLabel.classList.toggle('active', !isVerdad);
-    rightLabel.classList.toggle('active', isVerdad);
-    
-    // Actualizar contenido
-    content.querySelector('h3').textContent = currentData.title;
-    content.querySelector('p').textContent = currentData.description;
-    content.querySelector('.timeline-cta').textContent = currentData.cta;
-    
-    console.log(`Timeline item ${year} switched to: ${isVerdad ? 'verdad' : 'mentira'}`);
+  initModalFunctionality() {
+    // Configuración inicial del modal
+    const modalSwitchInput = document.getElementById('modalSwitchInput');
+    if (modalSwitchInput) {
+      modalSwitchInput.checked = false; // Iniciar en modo mentira
+    }
   }
 
   openVideoModal(year) {
+    console.log('Opening video modal for year:', year);
+    this.currentModalYear = year;
+    this.currentModalMode = this.currentMode;
+    
     const videoModal = document.getElementById('videoModal');
-    const videoIframe = document.getElementById('videoIframe');
+    const modalSwitchInput = document.getElementById('modalSwitchInput');
     
-    // Videos de ejemplo de YouTube para cada año
-    const videoUrls = {
-      '1973': 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Rick Roll como ejemplo
-      '1975': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      '2017': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      '2018': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      '2020': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      '2021': 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-    };
-
-    const videoUrl = videoUrls[year] || 'https://www.youtube.com/embed/dQw4w9WgXcQ';
+    // Configurar título inicial
+    this.updateModalContent();
     
-    if (videoIframe) {
-      videoIframe.src = videoUrl;
+    // Configurar switch del modal
+    if (modalSwitchInput) {
+      console.log('Modal switch found, setting checked state');
+      modalSwitchInput.checked = this.currentModalMode === 'verdad';
+    } else {
+      console.error('Modal switch not found');
     }
+    
+    this.updateModalSwitchLabels();
     
     if (videoModal) {
       videoModal.classList.add('active');
@@ -334,53 +520,123 @@ class DemocraciaFake {
     }
   }
 
-  closeVideoModal() {
-    const videoModal = document.getElementById('videoModal');
-    const videoIframe = document.getElementById('videoIframe');
+  updateModalContent() {
+    const year = this.currentModalYear;
+    const mode = this.currentModalMode;
     
-    if (videoModal) {
-      videoModal.classList.remove('active');
-      document.body.style.overflow = '';
+    // Obtener datos de la noticia
+    const mentiraIndex = timelineData['mentira'].findIndex(item => item.year === year);
+    if (mentiraIndex === -1) return;
+    
+    const currentData = timelineData[mode][mentiraIndex];
+    
+    // Actualizar título con el año incluido
+    const modalTitle = document.getElementById('modalTitle');
+    if (modalTitle) {
+      modalTitle.textContent = `${year} - ${currentData.title}`;
     }
     
-    if (videoIframe) {
-      videoIframe.src = '';
+    // Actualizar video
+    const videoContainer = document.getElementById('modalVideoContainer');
+    if (videoContainer && currentData.videoUrl) {
+      videoContainer.innerHTML = `
+        <iframe 
+          src="${currentData.videoUrl}" 
+          frameborder="0" 
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+  }
+
+  updateModalSwitchLabels() {
+    const modalLeftLabel = document.querySelector('.modal-switch-label.left');
+    const modalRightLabel = document.querySelector('.modal-switch-label.right');
+    
+    if (modalLeftLabel && modalRightLabel) {
+      const isVerdad = this.currentModalMode === 'verdad';
+      modalLeftLabel.classList.toggle('active', !isVerdad);
+      modalRightLabel.classList.toggle('active', isVerdad);
+    }
+  }
+
+  closeModal() {
+    const modal = document.getElementById('videoModal');
+    
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      
+      // Clear video content
+      const videoContainer = document.getElementById('modalVideoContainer');
+      if (videoContainer) {
+        videoContainer.innerHTML = '';
+      }
+      
+      // Reset modal state
+      this.currentModalYear = null;
+      this.currentModalMode = null;
     }
   }
 
   initScrollProgress() {
-    const timeline = document.querySelector('.timeline');
+    // Inicializar progreso de scroll del timeline
+    this.initTimelineScrollProgress();
     
+    // Agregar listener para actualizar círculos
     window.addEventListener('scroll', () => {
-      if (!timeline) return;
-      
-      const timelineRect = timeline.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const timelineHeight = timeline.offsetHeight;
-      
-      // Calcular progreso del scroll
-      const scrollProgress = Math.max(0, Math.min(100, 
-        (windowHeight - timelineRect.top) / (timelineHeight + windowHeight) * 100
-      ));
-      
-      timeline.style.setProperty('--scroll-progress', `${scrollProgress}%`);
-      timeline.classList.toggle('scrolling', scrollProgress > 0);
-      
-      // Activar círculos según el progreso
       this.updateTimelineCircles();
+      this.updateTimelineProgress();
     });
+  }
+
+  initTimelineScrollProgress() {
+    const timeline = document.getElementById('timeline');
+    if (!timeline) return;
+    
+    // La línea de progreso ya existe en CSS como timeline::before
+    // Solo necesitamos actualizarla con el scroll
+  }
+
+  updateTimelineProgress() {
+    const timeline = document.getElementById('timeline');
+    const timelineSection = document.querySelector('.verdad-mentira-section');
+    
+    if (!timeline || !timelineSection) return;
+    
+    const timelineSectionRect = timelineSection.getBoundingClientRect();
+    const timelineSectionTop = timelineSection.offsetTop;
+    const timelineSectionHeight = timelineSection.offsetHeight;
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    
+    // Calcular el progreso de scroll dentro de la sección timeline
+    const sectionStart = timelineSectionTop;
+    const sectionEnd = timelineSectionTop + timelineSectionHeight - windowHeight;
+    
+    let progress = 0;
+    if (scrollY >= sectionStart && scrollY <= sectionEnd) {
+      progress = ((scrollY - sectionStart) / (sectionEnd - sectionStart)) * 100;
+    } else if (scrollY > sectionEnd) {
+      progress = 100;
+    }
+    
+    // Aplicar el progreso a la línea del timeline
+    timeline.style.setProperty('--scroll-progress', `${Math.min(Math.max(progress, 0), 100)}%`);
+    timeline.classList.add('scrolling');
   }
 
   updateTimelineCircles() {
     const timelineItems = document.querySelectorAll('.timeline-item');
+    const scrollTop = window.scrollY;
     const windowHeight = window.innerHeight;
-    
-    timelineItems.forEach(item => {
+
+    timelineItems.forEach((item, index) => {
       const circle = item.querySelector('.timeline-circle');
-      const rect = item.getBoundingClientRect();
-      
-      // Activar círculo cuando el item está en el viewport
-      if (rect.top < windowHeight * 0.7 && rect.bottom > windowHeight * 0.3) {
+      const itemRect = item.getBoundingClientRect();
+      const itemCenter = itemRect.top + itemRect.height / 2;
+
+      if (itemCenter < windowHeight * 0.7) {
         circle.classList.add('active');
       } else {
         circle.classList.remove('active');
@@ -391,23 +647,98 @@ class DemocraciaFake {
   initScrollAnimations() {
     const timelineItems = document.querySelectorAll('.timeline-item');
     
-    const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          
+          // Obtener el año del timeline item
+          const yearElement = entry.target.querySelector('.timeline-year');
+          if (yearElement) {
+            const targetYear = parseInt(yearElement.textContent);
+            // Iniciar el contador de años
+            this.animateYearCounter(yearElement, targetYear);
+          }
+          
+          // Activate circle when item comes into view
+          const circle = entry.target.querySelector('.timeline-circle');
+          if (circle) {
+            // Remover active de todos los círculos
+            document.querySelectorAll('.timeline-circle').forEach(c => c.classList.remove('active'));
+            circle.classList.add('active');
+          }
         }
       });
-    }, observerOptions);
+    }, {
+      threshold: 0.3,
+      rootMargin: '0px 0px -100px 0px'
+    });
 
-    timelineItems.forEach(item => {
-      item.classList.remove('animate');
+    timelineItems.forEach((item) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(50px)';
+      item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       observer.observe(item);
     });
+
+    // Update circles on scroll
+    window.addEventListener('scroll', () => {
+      this.updateTimelineCircles();
+    });
+  }
+
+  animateYearCounter(yearElement, targetYear) {
+    // Evitar múltiples animaciones simultáneas en el mismo elemento
+    if (yearElement.dataset.animating === 'true') return;
+    yearElement.dataset.animating = 'true';
+    
+    // Obtener el año anterior más cercano
+    const previousYear = this.getPreviousYear(targetYear);
+    let currentYear = previousYear;
+    
+    // Configurar la velocidad según la diferencia de años
+    const yearDifference = targetYear - previousYear;
+    let animationSpeed;
+    
+    if (yearDifference <= 2) {
+      animationSpeed = 300; // Muy lento para diferencias muy pequeñas
+    } else if (yearDifference <= 10) {
+      animationSpeed = 150; // Lento para diferencias pequeñas
+    } else if (yearDifference <= 30) {
+      animationSpeed = 50; // Medio para diferencias medianas
+    } else {
+      animationSpeed = 20; // Rápido para diferencias grandes
+    }
+    
+    const updateYear = () => {
+      yearElement.textContent = currentYear;
+      
+      if (currentYear < targetYear) {
+        currentYear++;
+        setTimeout(updateYear, animationSpeed);
+      } else {
+        yearElement.dataset.animating = 'false';
+      }
+    };
+    
+    // Iniciar la animación
+    updateYear();
+  }
+  
+  getPreviousYear(targetYear) {
+    // Obtener todos los años del timeline actual
+    const currentData = timelineData[this.currentMode];
+    const years = currentData.map(item => parseInt(item.year)).sort((a, b) => a - b);
+    const currentIndex = years.indexOf(targetYear);
+    
+    if (currentIndex === 0) {
+      // Si es el primer año, empezar desde él mismo
+      return targetYear;
+    } else {
+      // Empezar desde el año anterior en la lista
+      return years[currentIndex - 1];
+    }
   }
 
   // Parallax effect for timeline (simplified version)
@@ -428,9 +759,19 @@ class DemocraciaFake {
 }
 
 // Initialize the application when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  new DemocraciaFake();
-});
+if (document.readyState === 'loading') {
+  console.log('Document still loading, waiting for DOMContentLoaded');
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded via event, initializing app...');
+    window.democraciaFakeApp = new DemocraciaFake();
+  });
+} else {
+  console.log('Document already ready, initializing immediately');
+  // Pequeño delay para asegurar que todo el DOM está listo
+  setTimeout(() => {
+    window.democraciaFakeApp = new DemocraciaFake();
+  }, 100);
+}
 
 // Smooth scrolling for anchor links
 document.addEventListener('click', (e) => {

@@ -14,21 +14,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One:wght@400&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!-- Hamburger Menu -->
-    <nav class="hamburger-menu" id="hamburgerMenu">
-      <button class="hamburger-toggle" id="hamburgerToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="menu-overlay" id="menuOverlay">
-        <ul class="menu-items">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#verdad-mentira">Verdad/Mentira</a></li>
-          <li><a href="#nueva-ley">Nueva Ley de Medios</a></li>
-        </ul>
-      </div>
-    </nav>
+    <!-- Pre-header Navigation -->
+    <div class="preheader">
+      <nav class="main-nav">
+        <div class="nav-items">
+          <a href="#inicio">Inicio</a>
+          <a href="#verdad-mentira">Verdad/Mentira</a>
+          <a href="desinformacion.html">Anatomía de las Fakenews</a>
+          <a href="#nueva-ley">Nueva Ley de Medios</a>
+        </div>
+      </nav>
+    </div>
 
     <!-- Header with Logo -->
     <header class="header" id="inicio">
@@ -68,6 +64,26 @@
         </div>
       </section>
 
+      <!-- Floating Switch (Right) -->
+      <div class="floating-switch-nav" id="floatingSwitchNav">
+        <div class="floating-switch-container">
+          <span class="floating-switch-label left">Mentira</span>
+          <div class="floating-switch" id="floatingModeSwitch">
+            <input type="checkbox" id="floatingSwitchInput">
+            <span class="floating-slider"></span>
+          </div>
+          <span class="floating-switch-label right">Verdad</span>
+        </div>
+      </div>
+
+      <!-- Decades Filter Timeline (Left) -->
+      <div class="decades-timeline" id="decadesTimeline">
+        <div class="decades-line"></div>
+        <div class="decades-items">
+          <!-- Decades will be dynamically generated -->
+        </div>
+      </div>
+
       <!-- Nueva Ley de Medios Section -->
       <section class="section nueva-ley-section" id="nueva-ley">
         <div class="container">
@@ -95,9 +111,27 @@
 
     <!-- Video Modal -->
     <div class="video-modal" id="videoModal">
+      <div class="video-modal-overlay" id="videoModalOverlay"></div>
       <div class="video-modal-content">
         <button class="video-modal-close" id="videoModalClose">&times;</button>
-        <iframe id="videoIframe" src="" allowfullscreen></iframe>
+        
+        <!-- Modal Header with switch -->
+        <div class="modal-header">
+          <h3 class="modal-title" id="modalTitle">Título de la noticia</h3>
+          <div class="modal-switch-container">
+            <span class="modal-switch-label left">MENTIRA</span>
+            <div class="modal-switch" id="modalModeSwitch">
+              <input type="checkbox" id="modalSwitchInput">
+              <span class="modal-slider"></span>
+            </div>
+            <span class="modal-switch-label right">VERDAD</span>
+          </div>
+        </div>
+        
+        <!-- Video Container -->
+        <div class="modal-video-container" id="modalVideoContainer">
+          <!-- Video will be dynamically inserted here -->
+        </div>
       </div>
     </div>
 
