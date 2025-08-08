@@ -110,55 +110,55 @@
         }
 
         /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            position: relative;
-            overflow: hidden;
+        /* Hero section */
+        .hero {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          background: linear-gradient(135deg, var(--color-background) 0%, #1a1a1a 100%);
+          position: relative;
+          overflow: hidden;
         }
 
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 70%, rgba(233, 80, 64, 0.05) 0%, transparent 50%);
-            pointer-events: none;
+        .hero::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: url('/democracia-fake/assets/infografia-anatomia-03-JFMf1r_n.svg') center/cover no-repeat;
+          opacity: 0.15;
+          z-index: 0;
         }
 
-        .hero-title {
-            font-size: var(--font-size-4xl);
-            font-weight: 700;
-            margin-bottom: var(--spacing-lg);
-            color: var(--color-primary);
-            letter-spacing: -0.02em;
+        .hero-content {
+          position: relative;
+          z-index: 1;
+          max-width: 800px;
+          padding: 0 2rem;
         }
 
-        .hero-subtitle {
-            font-size: var(--font-size-2xl);
-            font-weight: 500;
-            color: var(--color-secondary);
-            margin-bottom: var(--spacing-lg);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .hero h1 {
+          font-size: clamp(3rem, 8vw, 6rem);
+          font-weight: 800;
+          margin-bottom: 1.5rem;
+          line-height: 1.1;
+          background: linear-gradient(135deg, var(--color-primary) 0%, #ff6b35 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: fadeInUp 1s ease-out;
         }
 
-        .hero-description {
-            font-size: var(--font-size-lg);
-            color: var(--color-secondary);
-            max-width: 700px;
-            margin: 0 auto var(--spacing-2xl);
-            line-height: 1.7;
-        }
-
-        /* Content Sections */
+        .hero p {
+          font-size: 1.5rem;
+          color: var(--color-text-secondary);
+          margin-bottom: 3rem;
+          animation: fadeInUp 1s ease-out 0.3s both;
+        }        /* Content Sections */
         .content-section {
             padding: var(--spacing-4xl) var(--spacing-md);
         }
@@ -248,6 +248,76 @@
             padding: var(--spacing-xl);
             border-radius: var(--border-radius-lg);
             text-align: center;
+        }
+
+        /* Full-width infographic sections */
+        .infographic-section {
+          width: 100%;
+          min-height: 80vh;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          margin: 4rem 0;
+        }
+
+        .infographic-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.2);
+          z-index: 1;
+        }
+
+        .infographic-content {
+          position: relative;
+          z-index: 2;
+          text-align: center;
+          color: white;
+          max-width: 600px;
+          padding: 2rem;
+          background: rgba(0, 0, 0, 0.5);
+          border-radius: var(--border-radius-lg);
+        }
+
+        .infographic-1 {
+          background-image: url('/democracia-fake/assets/infografia-anatomia-02-BS-F53i-.svg');
+        }
+
+        .infographic-2 {
+          background-image: url('/democracia-fake/assets/infografia-anatomia-03-JFMf1r_n.svg');
+        }
+
+        /* Mobile infographic */
+        .mobile-infographic {
+          display: none;
+          width: 100%;
+          max-width: 400px;
+          margin: 3rem auto;
+        }
+
+        .mobile-infographic img {
+          width: 100%;
+          height: auto;
+        }
+
+        @media (max-width: 768px) {
+          .infographic-section {
+            display: none;
+          }
+          
+          .mobile-infographic {
+            display: block;
+          }
+        }
+
+        .highlight-stat {
             margin: var(--spacing-2xl) 0;
             box-shadow: 0 8px 24px rgba(233, 80, 64, 0.3);
         }
@@ -461,6 +531,19 @@
         <!-- Content Sections -->
         <section class="story-section content-section" id="proceso">
             
+            <!-- Infografía: El Impacto -->
+            <div class="infographic-section infographic-1">
+                <div class="infographic-content">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">El Impacto de la Desinformación</h2>
+                    <p style="font-size: 1.2rem;">Observa cómo la desinformación ataca los pilares democráticos</p>
+                </div>
+            </div>
+
+            <!-- Mobile version -->
+            <div class="mobile-infographic">
+                <img src="/democracia-fake/assets/infografia-anatomia-mobile-YL3H7bVM.svg" alt="5 Pasos de la Desinformación" />
+            </div>
+            
             <!-- Sección 1 -->
             <div class="narrative-section animate-on-scroll">
                 <div class="step-header">
@@ -619,6 +702,14 @@
                 </div>
             </div>
         </section>
+
+        <!-- Infografía: Anatomía Completa -->
+        <div class="infographic-section infographic-2">
+            <div class="infographic-content">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Anatomía de la Desinformación</h2>
+                <p style="font-size: 1.2rem;">Visualiza el ecosistema completo de la manipulación digital</p>
+            </div>
+        </div>
 
         <!-- Final CTA Section -->
         <section class="story-section final-cta">
