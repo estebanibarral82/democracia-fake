@@ -452,7 +452,7 @@ body.verdad-mode input:checked + .slider:before {
 }
 
 .timeline-content h3 {
-  font-family: var(--font-title);
+  font-family: var(--font-special);
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 1rem;

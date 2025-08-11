@@ -338,24 +338,21 @@ class DemocraciaFake {
       return;
     }
     
-    let hasBeenVisible = false;
-    
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       const timelineSection = document.querySelector('.verdad-mentira-section');
       
       if (timelineSection) {
         const timelineSectionTop = timelineSection.offsetTop;
+        const timelineSectionBottom = timelineSectionTop + timelineSection.offsetHeight;
+        const windowHeight = window.innerHeight;
         
-        // Mostrar el switch flotante cuando llegue a la sección timeline
-        if (scrollY >= timelineSectionTop - 200) {
+        // Mostrar solo cuando esté dentro de la sección timeline
+        if (scrollY >= timelineSectionTop - 200 && scrollY <= timelineSectionBottom - windowHeight + 200) {
           floatingSwitchNav.classList.add('visible');
-          hasBeenVisible = true;
-        } else if (!hasBeenVisible) {
-          // Solo ocultar si nunca ha sido visible
+        } else {
           floatingSwitchNav.classList.remove('visible');
         }
-        // Si ya fue visible una vez, se mantiene visible siempre
       }
     });
   }
@@ -434,21 +431,18 @@ class DemocraciaFake {
     
     if (!decadesTimeline || !timelineSection) return;
     
-    let hasBeenVisible = false;
-    
     window.addEventListener('scroll', () => {
       const timelineSectionTop = timelineSection.offsetTop;
+      const timelineSectionBottom = timelineSectionTop + timelineSection.offsetHeight;
       const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
       
-      // Mostrar el timeline de décadas cuando llegue a la sección timeline
-      if (scrollY >= timelineSectionTop - 100) {
+      // Mostrar solo cuando esté dentro de la sección timeline
+      if (scrollY >= timelineSectionTop - 100 && scrollY <= timelineSectionBottom - windowHeight + 100) {
         decadesTimeline.classList.add('visible');
-        hasBeenVisible = true;
-      } else if (!hasBeenVisible) {
-        // Solo ocultar si nunca ha sido visible
+      } else {
         decadesTimeline.classList.remove('visible');
       }
-      // Si ya fue visible una vez, se mantiene visible siempre
     });
   }
 
