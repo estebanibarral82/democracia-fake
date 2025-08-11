@@ -30,32 +30,10 @@
             overflow-x: hidden;
         }
 
-        /* Back Navigation */
-        .nav-back {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            background: rgba(9, 7, 6, 0.9);
-            color: var(--color-text);
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(233, 80, 64, 0.3);
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-
-        .nav-back:hover {
-            background: rgba(233, 80, 64, 0.9);
-            transform: translateY(-2px);
-        }
-
         /* Hero Header */
         .hero-header {
             height: 100vh;
-            background: linear-gradient(rgba(9, 7, 6, 0.4), rgba(9, 7, 6, 0.6)), url('./public/header-fn1.png');
+            background: linear-gradient(rgba(9, 7, 6, 0.4), rgba(9, 7, 6, 0.6)), url('./public/header-fn1.svg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -78,7 +56,8 @@
             font-weight: 700;
             margin-bottom: 2rem;
             line-height: 1.2;
-            color: var(--color-text);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
         }
 
         .scroll-indicator {
@@ -91,6 +70,8 @@
             align-items: center;
             color: var(--color-secondary);
             cursor: pointer;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.5s forwards;
         }
 
         .scroll-text {
@@ -110,6 +91,7 @@
             background-color: #ffffff;
             color: #333333;
             padding: 6rem 2rem;
+            text-align: center;
         }
 
         .white-content {
@@ -117,11 +99,6 @@
             margin: 0 auto;
             font-size: 1.2rem;
             line-height: 1.8;
-            text-align: left;
-        }
-
-        .white-content p {
-            margin-bottom: 1.5rem;
         }
 
         /* Three Column Section */
@@ -129,7 +106,6 @@
             min-height: 100vh;
             position: relative;
             overflow: hidden;
-            background-color: var(--color-background);
         }
 
         .columns-container {
@@ -153,7 +129,7 @@
             color: var(--color-primary);
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .column-1 .objetivo {
@@ -169,7 +145,7 @@
             right: 0;
             width: 66.66%;
             height: 100%;
-            background: url('./public/seccion1.png');
+            background: url('./public/seccion1.svg');
             background-size: cover;
             background-position: center;
             z-index: 1;
@@ -290,20 +266,18 @@
             opacity: 0.8;
         }
 
-        /* Section 3 - Plantación en Redes */
-        .section-3 {
-            background-color: var(--color-background);
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .section-3 h2 {
-            color: var(--color-primary);
-            font-size: 3rem;
-            font-weight: 700;
-        }
-
         /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0);
@@ -367,10 +341,28 @@
             .quote-medium {
                 font-size: 1.4rem;
             }
+        }
 
-            .section-3 h2 {
-                font-size: 2rem;
-            }
+        /* Back Navigation */
+        .nav-back {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(9, 7, 6, 0.9);
+            color: var(--color-text);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(233, 80, 64, 0.3);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-back:hover {
+            background: rgba(233, 80, 64, 0.9);
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -394,6 +386,7 @@
     <section class="white-section">
         <div class="white-content">
             <p>Las noticias falsas no surgen por casualidad. Detrás de cada titular manipulado o imagen distorsionada existe un proceso planificado que busca influir en la percepción pública, generar confusión y, en muchos casos, dividir a la sociedad.</p>
+            <br>
             <p>Este recorrido en cinco etapas revela cómo una mentira se fabrica, se instala y se amplifica hasta llegar a miles o millones de personas. Comprender cada paso es clave para identificarla, frenarla y proteger el debate democrático.</p>
         </div>
     </section>
@@ -403,7 +396,7 @@
         <div class="columns-container">
             <!-- Column 1 - Always visible -->
             <div class="column-1">
-                <h2>Creación del Contenido Falso</h2>
+                <h2>1. Creación del Contenido Falso</h2>
                 <p class="objetivo">Objetivo: Fabricar una mentira con propósito claro.</p>
             </div>
 
@@ -438,11 +431,6 @@
                 <div class="quote-source">(MIT, 2018)</div>
             </div>
         </div>
-    </section>
-
-    <!-- Section 3 - Plantación en Redes -->
-    <section class="section-3">
-        <h2>2. Plantación en Redes</h2>
     </section>
 
     <script>
