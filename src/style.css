@@ -164,7 +164,7 @@ body:not(.verdad-mode) {
 }
 
 .header-description {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   line-height: 1.8;
   color: var(--text-secondary);
@@ -237,7 +237,7 @@ body:not(.verdad-mode) {
 }
 
 .section-title {
-  font-family: var(--font-condensed);
+  font-family: var(--font-title);
   font-size: 3rem;
   font-weight: 400;
   margin-bottom: 2rem;
@@ -246,7 +246,7 @@ body:not(.verdad-mode) {
 }
 
 .section-text {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   line-height: 1.8;
   color: var(--text-secondary);
@@ -452,7 +452,7 @@ body.verdad-mode input:checked + .slider:before {
 }
 
 .timeline-content h3 {
-  font-family: var(--font-condensed);
+  font-family: var(--font-title);
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 1rem;
@@ -462,7 +462,7 @@ body.verdad-mode input:checked + .slider:before {
 }
 
 .timeline-content p {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
@@ -706,7 +706,7 @@ body:not(.verdad-mode) .decade-circle.active + .decade-label {
   border: none;
   padding: 0.8rem 1.5rem;
   border-radius: 4px;
-  font-family: var(--font-title);
+  font-family: var(--font-special);
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
