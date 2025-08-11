@@ -11,10 +11,11 @@
   --gris-claro-alt: #AAA;
   
   /* Typography */
-  --font-title: 'Special Elite', 'Courier New', monospace; /* Similar to Special Gothic Condensed */
+  --font-title: 'PT Serif', serif; /* Cambiado a PT Serif para títulos y subtítulos */
   --font-mono: 'Chivo Mono', 'Courier New', monospace;
-  --font-body: 'Roboto', sans-serif;
+  --font-body: 'PT Serif', serif; /* Cambiado a PT Serif para párrafos */
   --font-condensed: 'Special Gothic Condensed One', sans-serif;
+  --font-special: 'Special Elite', cursive; /* Solo para botones, años y switches */
   
   /* Current mode colors (default: Mentira) */
   --bg-primary: var(--negro-profundo);
@@ -56,16 +57,15 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(9, 7, 6, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: var(--rojo-montaje);
   z-index: 2000;
-  border-bottom: 1px solid rgba(233, 80, 64, 0.3);
+  border: none;
   padding: 0.8rem 0;
 }
 
 body.verdad-mode .preheader {
-  background-color: rgba(18, 9, 8, 0.95);
-  border-bottom-color: rgba(255, 255, 255, 0.3);
+  background-color: var(--rojo-montaje);
+  border: none;
 }
 
 .main-nav {
@@ -82,10 +82,10 @@ body.verdad-mode .preheader {
 }
 
 .nav-items a {
-  font-family: var(--font-title);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--blanco);
   text-decoration: none;
   transition: color 0.3s ease;
   padding: 0.5rem 1rem;
@@ -94,12 +94,14 @@ body.verdad-mode .preheader {
 
 .nav-items a:hover,
 .nav-items a.active {
-  color: var(--accent-color);
+  color: var(--blanco);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 body:not(.verdad-mode) .nav-items a:hover,
 body:not(.verdad-mode) .nav-items a.active {
-  color: #E95040 !important;
+  color: var(--blanco) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Adjust body padding for fixed preheader */
@@ -265,7 +267,7 @@ body:not(.verdad-mode) {
 }
 
 .switch-label {
-  font-family: var(--font-title);
+  font-family: var(--font-special);
   font-size: 1.5rem;
   text-transform: uppercase;
   color: var(--text-secondary);
@@ -425,7 +427,7 @@ body.verdad-mode input:checked + .slider:before {
 }
 
 .timeline-year {
-  font-family: var(--font-title);
+  font-family: var(--font-special);
   font-size: 6rem;
   font-weight: bold;
   color: var(--year-color);
@@ -505,7 +507,7 @@ body.verdad-mode .floating-switch-nav {
 }
 
 .floating-switch-label {
-  font-family: var(--font-title);
+  font-family: var(--font-special);
   font-size: 0.7rem;
   text-transform: uppercase;
   color: var(--text-secondary);
@@ -661,7 +663,7 @@ body:not(.verdad-mode) .decade-circle.active {
 }
 
 .decade-label {
-  font-family: var(--font-title);
+  font-family: var(--font-special);
   font-size: 0.7rem;
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -790,7 +792,7 @@ body:not(.verdad-mode) .cta-button {
   border: none;
   padding: 1.2rem 2.5rem;
   font-size: 1.2rem;
-  font-family: var(--font-title);
+  font-family: var(--font-special);
   text-transform: uppercase;
   border-radius: 8px;
   cursor: pointer;
@@ -890,7 +892,7 @@ body.verdad-mode .video-modal-content {
 }
 
 .modal-switch-label {
-  font-family: var(--font-title);
+  font-family: var(--font-special);
   font-size: 0.8rem;
   text-transform: uppercase;
   color: var(--text-secondary);
