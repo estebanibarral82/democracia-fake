@@ -206,14 +206,14 @@
             line-height: 1;
         }
 
-        /* Background Image - Initially covers columns 2 and 3 */
-        .background-image {
+        /* Background Image - Removed for fixed columns */
+        /* .background-image {
             position: absolute;
             top: 0;
             right: 0;
             width: 66.66%;
             height: 100%;
-            background: url('/democracia-fake/assets/seccion1-DHZxaUEY.png');
+            background: url('./img/seccion1.png');
             background-size: cover;
             background-position: center;
             z-index: 1;
@@ -222,24 +222,18 @@
 
         .background-image.split {
             width: 33.33%;
-        }
+        } */
 
-        /* Column 2 - Hidden initially, revealed on scroll */
+        /* Column 2 - Always visible */
         .column-2 {
             background-color: #2a2a2a;
             padding: 4rem 2rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            opacity: 0;
-            transform: translateX(-100%);
-            transition: all 0.8s ease-out;
-            z-index: 2;
-        }
-
-        .column-2.visible {
             opacity: 1;
             transform: translateX(0);
+            z-index: 2;
         }
 
         .column-2 h3 {
@@ -290,7 +284,7 @@
             font-size: 0.95rem;
         }
 
-        /* Column 3 - Hidden initially, revealed after column 2 */
+        /* Column 3 - Always visible */
         .column-3 {
             background-color: var(--color-primary);
             padding: 4rem 2rem;
@@ -299,17 +293,11 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: all 0.8s ease-out 0.4s;
+            opacity: 1;
+            transform: translateX(0);
             z-index: 2;
             position: relative;
             overflow: hidden;
-        }
-
-        .column-3.visible {
-            opacity: 1;
-            transform: translateX(0);
         }
 
         .quote {
@@ -633,10 +621,7 @@
                 </div>
             </div>
 
-            <!-- Background Image -->
-            <div class="background-image" id="background-img"></div>
-
-            <!-- Column 2 - Hidden initially -->
+            <!-- Column 2 - Always visible -->
             <div class="column-2" id="column-2">
                 <h3>Formas comunes de creación:</h3>
                 <ul>
@@ -652,7 +637,7 @@
                 </div>
             </div>
 
-            <!-- Column 3 - Hidden initially -->
+            <!-- Column 3 - Always visible -->
             <div class="column-3" id="column-3">
                 <div class="quote">
                     <div class="quote-overlay">
@@ -713,56 +698,14 @@
             });
         }
 
-        // Intersection Observer for scroll animations
+        // Intersection Observer for scroll animations - Simplified
         document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.3,
-                rootMargin: '0px 0px -100px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = entry.target;
-                        
-                        if (target.id === 'three-columns') {
-                            // Start the animation sequence
-                            setTimeout(() => {
-                                showColumn2();
-                            }, 500);
-                            
-                            setTimeout(() => {
-                                showColumn3();
-                            }, 1300);
-                        }
-                    }
-                });
-            }, observerOptions);
-
-            // Observe the three-column section
-            const threeColumnSection = document.getElementById('three-columns');
-            if (threeColumnSection) {
-                observer.observe(threeColumnSection);
-            }
+            // No animation needed since columns are always visible
         });
 
-        function showColumn2() {
-            const backgroundImg = document.getElementById('background-img');
-            const column2 = document.getElementById('column-2');
-            
-            // Split the background image to show only right half
-            backgroundImg.classList.add('split');
-            
-            // Show column 2
-            column2.classList.add('visible');
-        }
-
-        function showColumn3() {
-            const column3 = document.getElementById('column-3');
-            
-            // Show column 3
-            column3.classList.add('visible');
-        }
+        // Removed animation functions since columns are now static
+        // function showColumn2() - removed
+        // function showColumn3() - removed
 
         // Handle scroll indicator
         window.addEventListener('scroll', function() {
