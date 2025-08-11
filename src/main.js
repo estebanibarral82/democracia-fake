@@ -338,6 +338,8 @@ class DemocraciaFake {
       return;
     }
     
+    let hasBeenVisible = false;
+    
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       const timelineSection = document.querySelector('.verdad-mentira-section');
@@ -345,12 +347,15 @@ class DemocraciaFake {
       if (timelineSection) {
         const timelineSectionTop = timelineSection.offsetTop;
         
-        // Mostrar el switch flotante cuando llegue a la sección timeline (primer año)
+        // Mostrar el switch flotante cuando llegue a la sección timeline
         if (scrollY >= timelineSectionTop - 200) {
           floatingSwitchNav.classList.add('visible');
-        } else {
+          hasBeenVisible = true;
+        } else if (!hasBeenVisible) {
+          // Solo ocultar si nunca ha sido visible
           floatingSwitchNav.classList.remove('visible');
         }
+        // Si ya fue visible una vez, se mantiene visible siempre
       }
     });
   }
@@ -429,6 +434,8 @@ class DemocraciaFake {
     
     if (!decadesTimeline || !timelineSection) return;
     
+    let hasBeenVisible = false;
+    
     window.addEventListener('scroll', () => {
       const timelineSectionTop = timelineSection.offsetTop;
       const scrollY = window.scrollY;
@@ -436,9 +443,12 @@ class DemocraciaFake {
       // Mostrar el timeline de décadas cuando llegue a la sección timeline
       if (scrollY >= timelineSectionTop - 100) {
         decadesTimeline.classList.add('visible');
-      } else {
+        hasBeenVisible = true;
+      } else if (!hasBeenVisible) {
+        // Solo ocultar si nunca ha sido visible
         decadesTimeline.classList.remove('visible');
       }
+      // Si ya fue visible una vez, se mantiene visible siempre
     });
   }
 
