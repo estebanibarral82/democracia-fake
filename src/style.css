@@ -1300,7 +1300,7 @@ body:not(.verdad-mode) .switch-label.active {
 }
 
 .section-title {
-  font-family: var(--font-condensed);
+  font-family: var(--font-title);
   font-size: 3rem;
   font-weight: 400;
   margin-bottom: 1rem;
