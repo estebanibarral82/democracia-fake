@@ -366,20 +366,20 @@
             z-index: 3;
         }
 
-        /* Section 3 - Plantación en Redes */
-        .section-3 {
-          position: relative;
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-image: url('./seccion2.png');
-          background-size: cover;
-          background-position: center;
-          background-attachment: fixed;
+        /* Hero Section - Seccion 2 */
+        .hero-section-2 {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('./seccion2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
-        .section-3::before {
+        .hero-section-2::before {
             content: '';
             position: absolute;
             top: 0;
@@ -390,62 +390,86 @@
             z-index: 1;
         }
 
-        .section-3 .content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
+        /* Section 3 - Plantación en Redes */
+        .section-3 {
+          position: relative;
+          min-height: 100vh;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
         }
 
-        .section-3 h2 {
-            font-family: var(--font-family-title);
-            color: var(--color-primary);
-            font-size: 3rem;
+        .section-3 .left-column {
+            background-color: #666;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .section-3 .left-column h2 {
+            font-family: var(--font-family-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
+            color: #E95040;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .section-3 .left-column .subtitle {
+            font-family: var(--font-family-serif);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.4;
+        }
+
+        .section-3 .right-column {
+            background-color: white;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+                .section-3 .right-column .content {
+            color: #090706;
+        }
+
+        .section-3 .right-column .subsection {
             margin-bottom: 2rem;
         }
 
-        .section-3 .objetivo {
-            font-family: var(--font-family-subtitle);
-            color: var(--color-text);
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            font-style: italic;
-        }
-
-        .section-3 .subsection {
-            margin-bottom: 2rem;
-        }
-
-        .section-3 .subsection h3 {
-            font-family: var(--font-family-title);
-            color: var(--color-primary);
+        .section-3 .right-column .subsection h3 {
+            font-family: var(--font-family-serif);
             font-size: 1.5rem;
             font-weight: 600;
+            color: #090706;
             margin-bottom: 1rem;
         }
 
-        .section-3 ul {
+        .section-3 .right-column ul {
             list-style: none;
             margin: 0;
             padding: 0;
         }
 
-        .section-3 li {
-            font-family: var(--font-family-body);
-            color: var(--color-text);
+        .section-3 .right-column li {
+            font-family: var(--font-family-serif);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #090706;
             margin-bottom: 0.8rem;
             padding-left: 1.5rem;
             position: relative;
-            line-height: 1.4;
         }
 
-        .section-3 li::before {
+        .section-3 .right-column li::before {
             content: '•';
-            color: var(--color-primary);
+            color: #E95040;
+            font-weight: bold;
             position: absolute;
             left: 0;
-            font-weight: 600;
         }
 
         /* Animations */
@@ -513,7 +537,17 @@
                 font-size: 1.4rem;
             }
 
-            .section-3 h2 {
+            .section-3 {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .section-3 .left-column,
+            .section-3 .right-column {
+                padding: 2rem;
+            }
+
+            .section-3 .left-column h2 {
                 font-size: 2rem;
             }
         }
@@ -590,28 +624,36 @@
         </div>
     </section>
 
+    <!-- Hero Section 2 -->
+    <section class="hero-section-2">
+        <!-- Content can be added here if needed -->
+    </section>
+
     <!-- Section 3 - Plantación en Redes -->
     <section class="section-3">
-        <div class="content">
+        <div class="left-column">
             <h2>2. Plantación en Redes</h2>
-            <p class="objetivo">Introducir el contenido falso sin levantar sospechas.</p>
-            
-            <div class="subsection">
-                <h3>Cómo se hace:</h3>
-                <ul>
-                    <li>Publicar desde cuentas anónimas o bots recién creados.</li>
-                    <li>Simular que la publicación es orgánica.</li>
-                    <li>Usar VPN o ubicaciones falsas para aparentar diversidad geográfica.</li>
-                </ul>
-            </div>
+            <p class="subtitle">Introducir el contenido falso sin levantar sospechas.</p>
+        </div>
+        <div class="right-column">
+            <div class="content">
+                <div class="subsection">
+                    <h3>Cómo se hace:</h3>
+                    <ul>
+                        <li>Publicar desde cuentas anónimas o bots recién creados.</li>
+                        <li>Simular que la publicación es orgánica.</li>
+                        <li>Usar VPN o ubicaciones falsas para aparentar diversidad geográfica.</li>
+                    </ul>
+                </div>
 
-            <div class="subsection">
-                <h3>Características clave:</h3>
-                <ul>
-                    <li>Las cuentas "semilla" no tienen rostro ni historia.</li>
-                    <li>Muchas veces no se puede rastrear el origen.</li>
-                    <li>Suele parecer un dato "espontáneo" o una "filtración".</li>
-                </ul>
+                <div class="subsection">
+                    <h3>Características clave:</h3>
+                    <ul>
+                        <li>Las cuentas "semilla" no tienen rostro ni historia.</li>
+                        <li>Muchas veces no se puede rastrear el origen.</li>
+                        <li>Suele parecer un dato "espontáneo" o una "filtración".</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
