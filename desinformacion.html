@@ -379,7 +379,28 @@
             background-attachment: fixed;
         }
 
-        .hero-section-2::before {
+        /* Section 3 - Plantación en Redes */
+        .section-3 {
+          position: relative;
+          min-height: 100vh;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .section-3 .left-column {
+            position: relative;
+            background-color: #666;
+            background-image: url('./social2.gif');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .section-3 .left-column::before {
             content: '';
             position: absolute;
             top: 0;
@@ -390,21 +411,10 @@
             z-index: 1;
         }
 
-        /* Section 3 - Plantación en Redes */
-        .section-3 {
-          position: relative;
-          min-height: 100vh;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-        }
-
-        .section-3 .left-column {
-            background-color: #666;
-            padding: 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
+        .section-3 .left-column h2,
+        .section-3 .left-column .subtitle {
+            position: relative;
+            z-index: 2;
         }
 
         .section-3 .left-column h2 {
