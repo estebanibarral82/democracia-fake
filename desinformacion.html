@@ -151,12 +151,27 @@
 
         /* Column 1 - Always visible */
         .column-1 {
-            background-color: var(--color-background);
+            background-image: url('./social1.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             padding: 4rem 2rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            position: relative;
             z-index: 3;
+        }
+
+        .column-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(9, 7, 6, 0.85);
+            z-index: 1;
         }
 
         .column-1 h2 {
@@ -165,6 +180,8 @@
             font-size: 53px;
             font-weight: 900;
             margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
         }
 
         .column-1 .objetivo {
@@ -172,6 +189,8 @@
             color: var(--color-text);
             font-size: 1.1rem;
             line-height: 1;
+            position: relative;
+            z-index: 2;
         }
 
         /* Background Image - Initially covers columns 2 and 3 */
