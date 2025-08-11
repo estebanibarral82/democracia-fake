@@ -16,10 +16,11 @@
             --color-text: #FFFFFF;
             --color-primary: #E95040;
             --color-secondary: #CCCCCC;
-            --font-family-title: 'Special Elite', cursive;
+            --font-family-title: 'PT Serif', serif;
             --font-family-subtitle: 'PT Serif', serif;
             --font-family-mono: 'Chivo Mono', monospace;
             --font-family-body: 'PT Serif', serif;
+            --font-family-special: 'Special Elite', cursive;
         }
 
         * {
@@ -41,20 +42,20 @@
             position: fixed;
             top: 2rem;
             left: 2rem;
-            background: rgba(9, 7, 6, 0.9);
+            background: var(--color-primary);
             color: var(--color-text);
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
             text-decoration: none;
+            font-family: var(--font-family-body);
             font-weight: 500;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(233, 80, 64, 0.3);
+            border: none;
             transition: all 0.3s ease;
             z-index: 100;
         }
 
         .nav-back:hover {
-            background: rgba(233, 80, 64, 0.9);
+            background: #c23e30;
             transform: translateY(-2px);
         }
 
@@ -82,7 +83,7 @@
         .hero-title {
             font-family: var(--font-family-title);
             font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 400;
+            font-weight: 700;
             margin-bottom: 2rem;
             line-height: 1.2;
             color: var(--color-text);
@@ -355,7 +356,7 @@
         }
 
         .quote-source {
-            font-family: var(--font-family-subtitle);
+            font-family: var(--font-family-special);
             margin-top: 2rem;
             font-size: 1rem;
             font-weight: 400;
@@ -376,7 +377,7 @@
             font-family: var(--font-family-title);
             color: var(--color-primary);
             font-size: 3rem;
-            font-weight: 400;
+            font-weight: 700;
         }
 
         /* Animations */
