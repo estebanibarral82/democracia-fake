@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" style="background: #2c2c2c;">
+  <defs>
+    <linearGradient id="manipulationGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E95040;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#ff6b35;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#E95040;stop-opacity:0.4" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#2c2c2c"/>
+  
+  <!-- Left side: Creation tools and elements -->
+  <g transform="translate(50, 100)">
+    <!-- Computer/laptop representing creation tools -->
+    <rect x="50" y="150" width="300" height="200" rx="10" fill="#1a1a1a" stroke="#E95040" stroke-width="2"/>
+    <rect x="70" y="170" width="260" height="160" rx="5" fill="#000"/>
+    
+    <!-- Screen content showing manipulation -->
+    <rect x="90" y="190" width="220" height="15" fill="#E95040"/>
+    <rect x="90" y="215" width="180" height="8" fill="#666"/>
+    <rect x="90" y="230" width="200" height="8" fill="#666"/>
+    <rect x="90" y="245" width="160" height="8" fill="#666"/>
+    
+    <!-- Fake image placeholder -->
+    <rect x="90" y="270" width="80" height="50" fill="#E95040" opacity="0.7"/>
+    <text x="130" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">FAKE</text>
+    
+    <!-- Tools around the laptop -->
+    <circle cx="400" cy="200" r="30" fill="url(#manipulationGrad)"/>
+    <text x="400" y="208" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">📷</text>
+    
+    <circle cx="450" cy="280" r="25" fill="url(#manipulationGrad)"/>
+    <text x="450" y="288" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">🎥</text>
+    
+    <circle cx="350" cy="320" r="28" fill="url(#manipulationGrad)"/>
+    <text x="350" y="328" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="white">✂️</text>
+  </g>
+  
+  <!-- Center: Transformation arrows -->
+  <g transform="translate(600, 300)">
+    <path d="M0 0 L80 0 L70 -10 M80 0 L70 10" stroke="#E95040" stroke-width="4" fill="none"/>
+    <text x="40" y="-20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E95040">PROCESO</text>
+  </g>
+  
+  <!-- Right side: Fake news output -->
+  <g transform="translate(750, 150)">
+    <!-- Newspaper/article representation -->
+    <rect x="0" y="50" width="350" height="250" rx="8" fill="#1a1a1a" stroke="#E95040" stroke-width="2"/>
+    
+    <!-- Fake headline -->
+    <rect x="20" y="80" width="310" height="25" fill="#E95040"/>
+    <text x="175" y="98" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">NOTICIA FALSA CREADA</text>
+    
+    <!-- Fake content lines -->
+    <rect x="20" y="120" width="250" height="10" fill="#666"/>
+    <rect x="20" y="140" width="280" height="10" fill="#666"/>
+    <rect x="20" y="160" width="200" height="10" fill="#666"/>
+    <rect x="20" y="180" width="260" height="10" fill="#666"/>
+    
+    <!-- Fake image -->
+    <rect x="20" y="210" width="120" height="70" fill="#E95040" opacity="0.7"/>
+    <text x="80" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">IMAGEN</text>
+    <text x="80" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">FALSA</text>
+    
+    <!-- Warning indicators -->
+    <text x="320" y="40" font-family="Arial, sans-serif" font-size="30" fill="#E95040">⚠️</text>
+    <text x="370" y="180" font-family="Arial, sans-serif" font-size="20" fill="#E95040">❌</text>
+  </g>
+  
+  <!-- Bottom: Steps indicator -->
+  <g transform="translate(100, 650)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#E95040" font-weight="bold">PASO 1: CREACIÓN</text>
+    <rect x="0" y="10" width="200" height="3" fill="#E95040"/>
+    <rect x="220" y="10" width="40" height="3" fill="#666"/>
+    <rect x="280" y="10" width="40" height="3" fill="#666"/>
+    <rect x="340" y="10" width="40" height="3" fill="#666"/>
+    <rect x="400" y="10" width="40" height="3" fill="#666"/>
+  </g>
+</svg>

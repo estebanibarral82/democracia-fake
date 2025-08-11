@@ -3,510 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#DefendeLaDemocracia - Anatomía de la Desinformación</title>
-    <link rel="icon" type="image/svg+xml" href="/democracia-fake/vite.svg" />
-    
-    <!-- Preload critical fonts -->
+    <title>Anatomía de las Fakenews - Democracia Fake</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables */
         :root {
-            --color-primary: #000000;
-            --color-secondary: #666666;
-            --color-accent: #E95040;
-            --color-background: #ffffff;
-            --color-surface: #f8f9fa;
-            --color-border: #e9ecef;
-            
-            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-size-xs: 0.75rem;
-            --font-size-sm: 0.875rem;
-            --font-size-base: 1rem;
-            --font-size-lg: 1.125rem;
-            --font-size-xl: 1.25rem;
-            --font-size-2xl: 1.5rem;
-            --font-size-3xl: 1.875rem;
-            --font-size-4xl: 2.25rem;
-            --font-size-5xl: 3rem;
-            
-            --spacing-xs: 0.25rem;
-            --spacing-sm: 0.5rem;
-            --spacing-md: 1rem;
-            --spacing-lg: 1.5rem;
-            --spacing-xl: 2rem;
-            --spacing-2xl: 3rem;
-            --spacing-3xl: 4rem;
-            --spacing-4xl: 6rem;
-            
-            --border-radius: 8px;
-            --border-radius-lg: 12px;
-            --transition: all 0.3s ease-out;
+            --color-background: #090706;
+            --color-text: #FFFFFF;
+            --color-primary: #E95040;
+            --color-secondary: #CCCCCC;
+            --font-family: 'Inter', sans-serif;
         }
 
-        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: var(--font-family);
-            font-size: var(--font-size-base);
-            line-height: 1.6;
-            color: var(--color-primary);
             background-color: var(--color-background);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Layout Components */
-        .story-container {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-        }
-
-        .story-section {
-            width: 100%;
-            padding: var(--spacing-2xl) var(--spacing-md);
+        /* Hero Header */
+        .hero-header {
+            height: 100vh;
+            background: linear-gradient(rgba(9, 7, 6, 0.4), rgba(9, 7, 6, 0.6)), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDEwODAiIHN0eWxlPSJiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCAjMDkwNzA2IDAlLCAjMWExYTFhIDUwJSwgIzJjMmMyYyAxMDAlKTsiPgogIDxkZWZzPgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJuZXdzR2xvdyIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNTAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I0U5NTA0MDtzdG9wLW9wYWNpdHk6MC4zIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNFOTUwNDA7c3RvcC1vcGFjaXR5OjAuMDUiIC8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ0ZXh0R3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjkiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2NjY2NjYztzdG9wLW9wYWNpdHk6MC43IiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgCiAgPCEtLSBCYWNrZ3JvdW5kIHBhdHRlcm4gLS0+CiAgPHJlY3Qgd2lkdGg9IjE5MjAiIGhlaWdodD0iMTA4MCIgZmlsbD0idXJsKCNuZXdzR2xvdykiLz4KICAKICA8IS0tIE5ld3NwYXBlci9kb2N1bWVudCBpY29ucyBzY2F0dGVyZWQgLS0+CiAgPGcgb3BhY2l0eT0iMC4xIiBmaWxsPSIjRTk1MDQwIj4KICAgIDwhLS0gTGFyZ2UgY2VudHJhbCBkb2N1bWVudCAtLT4KICAgIDxyZWN0IHg9Ijc2MCIgeT0iMzQwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjUwMCIgcng9IjEwIiBmaWxsPSIjMzMzIiBzdHJva2U9IiNFOTUwNDAiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHJlY3QgeD0iNzgwIiB5PSIzODAiIHdpZHRoPSIzNjAiIGhlaWdodD0iMjAiIGZpbGw9IiNFOTUwNDAiLz4KICAgIDxyZWN0IHg9Ijc4MCIgeT0iNDIwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjEyIiBmaWxsPSIjNjY2Ii8+CiAgICA8cmVjdCB4PSI3ODAiIHk9IjQ0MCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMiIgZmlsbD0iIzY2NiIvPgogICAgPHJlY3QgeD0iNzgwIiB5PSI0NjAiIHdpZHRoPSIyNTAiIGhlaWdodD0iMTIiIGZpbGw9IiM2NjYiLz4KICAgIAogICAgPCEtLSBTbWFsbGVyIGRvY3VtZW50cyBmbG9hdGluZyAtLT4KICAgIDxyZWN0IHg9IjIwMCIgeT0iMjAwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjgiIGZpbGw9IiMyMjIiIHN0cm9rZT0iI0U5NTA0MCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8cmVjdCB4PSIyMjAiIHk9IjIzMCIgd2lkdGg9IjI2MCIgaGVpZ2h0PSIxNSIgZmlsbD0iI0U5NTA0MCIvPgogICAgPHJlY3QgeD0iMjIwIiB5PSIyNjAiIHdpZHRoPSIyMDAiIGhlaWdodD0iOCIgZmlsbD0iIzU1NSIvPgogICAgPHJlY3QgeD0iMjIwIiB5PSIyNzUiIHdpZHRoPSIyMjAiIGhlaWdodD0iOCIgZmlsbD0iIzU1NSIvPgogICAgCiAgICA8cmVjdCB4PSIxNDIwIiB5PSI2MDAiIHdpZHRoPSIyNTAiIGhlaWdodD0iMzAwIiByeD0iOCIgZmlsbD0iIzIyMiIgc3Ryb2tlPSIjRTk1MDQwIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDxyZWN0IHg9IjE0NDAiIHk9IjYzMCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIxMiIgZmlsbD0iI0U5NTA0MCIvPgogICAgPHJlY3QgeD0iMTQ0MCIgeT0iNjU1IiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjciIGZpbGw9IiM1NTUiLz4KICAgIDxyZWN0IHg9IjE0NDAiIHk9IjY3MCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI3IiBmaWxsPSIjNTU1Ii8+CiAgPC9nPgogIAogIDwhLS0gV2FybmluZyBzeW1ib2xzIC0tPgogIDxnIG9wYWNpdHk9IjAuMTUiIGZpbGw9IiNFOTUwNDAiPgogICAgPHRleHQgeD0iMzAwIiB5PSI4MDAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI2MCI+4pqg77iPPC90ZXh0PgogICAgPHRleHQgeD0iMTUwMCIgeT0iMzAwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODAiPuKaoO+4jzwvdGV4dD4KICAgIDx0ZXh0IHg9IjEwMCIgeT0iNDAwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDAiPuKaoO+4jzwvdGV4dD4KICA8L2c+CiAgCiAgPCEtLSBCaW5hcnkgY29kZSByYWluIGVmZmVjdCAtLT4KICA8ZyBvcGFjaXR5PSIwLjA4IiBmaWxsPSIjRTk1MDQwIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjE0Ij4KICAgIDx0ZXh0IHg9IjUwIiB5PSIxMDAiPjAxMDAxMDAwPC90ZXh0PgogICAgPHRleHQgeD0iNTAiIHk9IjEyMCI+MTExMDAxMTA8L3RleHQ+CiAgICA8dGV4dCB4PSI1MCIgeT0iMTQwIj4wMDEwMTAwMTwvdGV4dD4KICAgIDx0ZXh0IHg9IjUwIiB5PSIxNjAiPjEwMTEwMTAwPC90ZXh0PgogICAgCiAgICA8dGV4dCB4PSIxODAwIiB5PSIyMDAiPjAxMDAxMDAwPC90ZXh0PgogICAgPHRleHQgeD0iMTgwMCIgeT0iMjIwIj4xMTEwMDExMDwvdGV4dD4KICAgIDx0ZXh0IHg9IjE4MDAiIHk9IjI0MCI+MDAxMDEwMDE8L3RleHQ+CiAgICA8dGV4dCB4PSIxODAwIiB5PSIyNjAiPjEwMTEwMTAwPC90ZXh0PgogICAgCiAgICA8dGV4dCB4PSI5NTAiIHk9IjUwIj4wMTAwMTAwMDwvdGV4dD4KICAgIDx0ZXh0IHg9Ijk1MCIgeT0iNzAiPjExMTAwMTEwPC90ZXh0PgogICAgPHRleHQgeD0iOTUwIiB5PSI5MCI+MDAxMDEwMDE8L3RleHQ+CiAgPC9nPgogIAogIDwhLS0gR3JpZCBvdmVybGF5IC0tPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHBhdGggZD0iTSAxMDAgMCBMIDAgMCAwIDEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRTk1MDQwIiBzdHJva2Utd2lkdGg9IjAuNSIgb3BhY2l0eT0iMC4xIi8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiIGZpbGw9InVybCgjZ3JpZCkiLz4KPC9zdmc+Cg==');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             position: relative;
         }
 
-        .section-content {
+        .hero-content {
             max-width: 800px;
+            padding: 0 2rem;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--color-secondary);
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.5s forwards;
+        }
+
+        .scroll-text {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .scroll-arrow {
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        /* White Section */
+        .white-section {
+            background-color: #ffffff;
+            color: #333333;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .white-content {
+            max-width: 1000px;
             margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        /* Three Column Section */
+        .three-column-section {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .columns-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Column 1 - Always visible */
+        .column-1 {
+            background-color: var(--color-background);
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 3;
+        }
+
+        .column-1 h2 {
+            color: var(--color-primary);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .column-1 .objetivo {
+            color: var(--color-text);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Background Image - Initially covers columns 2 and 3 */
+        .background-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 66.66%;
+            height: 100%;
+            background: url('/democracia-fake/assets/seccion1-BfAoMJAY.svg');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            transition: width 0.8s ease-out;
+        }
+
+        .background-image.split {
+            width: 33.33%;
+        }
+
+        /* Column 2 - Hidden initially, revealed on scroll */
+        .column-2 {
+            background-color: var(--color-background);
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all 0.8s ease-out;
+            z-index: 2;
+        }
+
+        .column-2.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .column-2 h3 {
+            color: var(--color-text);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .column-2 ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .column-2 li {
+            color: var(--color-secondary);
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .column-2 li::before {
+            content: '•';
+            color: var(--color-primary);
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+        }
+
+        .temas-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .temas-section p {
+            color: var(--color-text);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .temas-section span {
+            color: var(--color-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Column 3 - Hidden initially, revealed after column 2 */
+        .column-3 {
+            background-color: var(--color-primary);
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.8s ease-out 0.4s;
+            z-index: 2;
+        }
+
+        .column-3.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .quote {
+            color: white;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .quote-large {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .quote-medium {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .quote-small {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .quote-source {
+            margin-top: 2rem;
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-header {
+                background-attachment: scroll;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .white-content {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+
+            .columns-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                height: auto;
+            }
+
+            .background-image {
+                position: relative;
+                width: 100%;
+                height: 300px;
+                order: 2;
+            }
+
+            .column-1 {
+                order: 1;
+            }
+
+            .column-2 {
+                order: 3;
+                transform: none;
+                opacity: 1;
+            }
+
+            .column-3 {
+                order: 4;
+                transform: none;
+                opacity: 1;
+            }
+
+            .quote-large {
+                font-size: 1.8rem;
+            }
+
+            .quote-medium {
+                font-size: 1.4rem;
+            }
         }
 
         /* Back Navigation */
         .nav-back {
             position: fixed;
-            top: var(--spacing-lg);
-            left: var(--spacing-lg);
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-sm) var(--spacing-lg);
+            top: 2rem;
+            left: 2rem;
+            background: rgba(9, 7, 6, 0.9);
+            color: var(--color-text);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
             text-decoration: none;
-            color: var(--color-primary);
             font-weight: 500;
-            font-size: var(--font-size-sm);
-            transition: var(--transition);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(233, 80, 64, 0.3);
+            transition: all 0.3s ease;
+            z-index: 100;
         }
 
         .nav-back:hover {
+            background: rgba(233, 80, 64, 0.9);
             transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        /* Hero Section */
-        /* Hero section */
-        .hero {
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          background: linear-gradient(135deg, var(--color-background) 0%, #1a1a1a 100%);
-          position: relative;
-          overflow: hidden;
-        }
-
-        .hero::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: url('/democracia-fake/assets/infografia-anatomia-03-JFMf1r_n.svg') center/cover no-repeat;
-          opacity: 0.15;
-          z-index: 0;
-        }
-
-        .hero-content {
-          position: relative;
-          z-index: 1;
-          max-width: 800px;
-          padding: 0 2rem;
-        }
-
-        .hero h1 {
-          font-size: clamp(3rem, 8vw, 6rem);
-          font-weight: 800;
-          margin-bottom: 1.5rem;
-          line-height: 1.1;
-          background: linear-gradient(135deg, var(--color-primary) 0%, #ff6b35 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          animation: fadeInUp 1s ease-out;
-        }
-
-        .hero p {
-          font-size: 1.5rem;
-          color: var(--color-text-secondary);
-          margin-bottom: 3rem;
-          animation: fadeInUp 1s ease-out 0.3s both;
-        }        /* Content Sections */
-        .content-section {
-            padding: var(--spacing-4xl) var(--spacing-md);
-        }
-
-        .narrative-section {
-            margin-bottom: var(--spacing-4xl);
-        }
-
-        .section-title {
-            font-size: var(--font-size-3xl);
-            font-weight: 600;
-            margin-bottom: var(--spacing-xl);
-            color: var(--color-primary);
-            letter-spacing: -0.02em;
-        }
-
-        .section-objective {
-            font-size: var(--font-size-lg);
-            color: var(--color-accent);
-            font-weight: 500;
-            margin-bottom: var(--spacing-lg);
-            padding: var(--spacing-md) var(--spacing-lg);
-            background: rgba(233, 80, 64, 0.05);
-            border-radius: var(--border-radius);
-            border-left: 4px solid var(--color-accent);
-        }
-
-        .section-text {
-            font-size: var(--font-size-base);
-            color: var(--color-secondary);
-            margin-bottom: var(--spacing-lg);
-            line-height: 1.7;
-        }
-
-        /* Content Cards */
-        .content-card {
-            background: var(--color-surface);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-2xl);
-            margin-bottom: var(--spacing-xl);
-            border: 1px solid var(--color-border);
-            transition: var(--transition);
-        }
-
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-title {
-            font-size: var(--font-size-xl);
-            font-weight: 600;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-primary);
-        }
-
-        .card-text {
-            color: var(--color-secondary);
-            line-height: 1.6;
-        }
-
-        /* Lists */
-        .info-list {
-            list-style: none;
-            margin: var(--spacing-lg) 0;
-        }
-
-        .info-list li {
-            padding: var(--spacing-sm) 0;
-            padding-left: var(--spacing-lg);
-            position: relative;
-            color: var(--color-secondary);
-        }
-
-        .info-list li::before {
-            content: '•';
-            color: var(--color-accent);
-            font-weight: 600;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Highlighted Data */
-        .highlight-stat {
-            background: linear-gradient(135deg, var(--color-accent), #ff6b5a);
-            color: white;
-            padding: var(--spacing-xl);
-            border-radius: var(--border-radius-lg);
-            text-align: center;
-        }
-
-        /* Full-width infographic sections */
-        .infographic-section {
-          width: 100%;
-          min-height: 80vh;
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          margin: 4rem 0;
-        }
-
-        .infographic-section::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(0, 0, 0, 0.2);
-          z-index: 1;
-        }
-
-        .infographic-content {
-          position: relative;
-          z-index: 2;
-          text-align: center;
-          color: white;
-          max-width: 600px;
-          padding: 2rem;
-          background: rgba(0, 0, 0, 0.5);
-          border-radius: var(--border-radius-lg);
-        }
-
-        .infographic-1 {
-          background-image: url('/democracia-fake/assets/infografia-anatomia-02-BS-F53i-.svg');
-        }
-
-        .infographic-2 {
-          background-image: url('/democracia-fake/assets/infografia-anatomia-03-JFMf1r_n.svg');
-        }
-
-        /* Mobile infographic */
-        .mobile-infographic {
-          display: none;
-          width: 100%;
-          max-width: 400px;
-          margin: 3rem auto;
-        }
-
-        .mobile-infographic img {
-          width: 100%;
-          height: auto;
-        }
-
-        @media (max-width: 768px) {
-          .infographic-section {
-            display: none;
-          }
-          
-          .mobile-infographic {
-            display: block;
-          }
-        }
-
-        .highlight-stat {
-            margin: var(--spacing-2xl) 0;
-            box-shadow: 0 8px 24px rgba(233, 80, 64, 0.3);
-        }
-
-        .highlight-stat .stat-text {
-            font-size: var(--font-size-lg);
-            font-weight: 500;
-        }
-
-        /* Step Numbers */
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--color-accent);
-            color: white;
-            border-radius: 50%;
-            font-weight: 600;
-            margin-right: var(--spacing-md);
-            font-size: var(--font-size-lg);
-        }
-
-        .step-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        /* CTA Buttons */
-        .cta-button {
-            display: inline-block;
-            background: var(--color-accent);
-            color: white;
-            padding: var(--spacing-md) var(--spacing-2xl);
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: var(--font-size-base);
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .cta-button:hover {
-            background: #d63384;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(233, 80, 64, 0.3);
-        }
-
-        .cta-button.secondary {
-            background: transparent;
-            color: var(--color-accent);
-            border: 2px solid var(--color-accent);
-        }
-
-        .cta-button.secondary:hover {
-            background: var(--color-accent);
-            color: white;
-        }
-
-        /* Final CTA Section */
-        .final-cta {
-            background: var(--color-primary);
-            color: white;
-            text-align: center;
-            padding: var(--spacing-4xl) var(--spacing-md);
-        }
-
-        .final-cta .section-title {
-            color: white;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .final-cta .section-text {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: var(--spacing-2xl);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: var(--spacing-lg);
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .story-section {
-                padding: var(--spacing-xl) var(--spacing-md);
-            }
-
-            .hero-title {
-                font-size: var(--font-size-3xl);
-            }
-
-            .hero-subtitle {
-                font-size: var(--font-size-xl);
-            }
-
-            .section-title {
-                font-size: var(--font-size-2xl);
-            }
-
-            .content-card {
-                padding: var(--spacing-lg);
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-button {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .nav-back {
-                top: var(--spacing-md);
-                left: var(--spacing-md);
-                padding: var(--spacing-sm) var(--spacing-md);
-                font-size: var(--font-size-xs);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .story-section {
-                padding: var(--spacing-lg) var(--spacing-sm);
-            }
-
-            .content-section {
-                padding: var(--spacing-2xl) var(--spacing-sm);
-            }
-
-            .hero-title {
-                font-size: var(--font-size-2xl);
-            }
-
-            .step-header {
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
-            }
-
-            .step-number {
-                margin-bottom: var(--spacing-sm);
-                margin-right: 0;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .story-section {
-                padding: var(--spacing-4xl) var(--spacing-2xl);
-            }
-
-            .section-content {
-                max-width: 900px;
-            }
-
-            .hero-title {
-                font-size: var(--font-size-5xl);
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            .nav-back {
-                display: none;
-            }
-            
-            .story-section {
-                padding: var(--spacing-lg);
-                break-inside: avoid;
-            }
         }
     </style>
 </head>
@@ -515,295 +371,135 @@
     <!-- Back Navigation -->
     <a href="index.html" class="nav-back">← Volver al sitio principal</a>
 
-    <main class="story-container">
-        <!-- Hero Section -->
-        <section class="story-section hero-section">
-            <div class="section-content">
-                <h1 class="hero-title animate-on-scroll">#DefendeLaDemocracia</h1>
-                <h2 class="hero-subtitle animate-on-scroll">La desinformación no es solo mentira</h2>
-                <p class="hero-description animate-on-scroll">
-                    Es un ataque sistemático que erosiona nuestra democracia, fragmenta la sociedad y debilita la confianza en las instituciones. Conoce cómo funciona este proceso en 5 etapas.
-                </p>
-                <a href="#proceso" class="cta-button animate-on-scroll">Descubre el Proceso</a>
-            </div>
-        </section>
+    <!-- Hero Header -->
+    <section class="hero-header">
+        <div class="hero-content">
+            <h1 class="hero-title">Descubre cómo se construyen las noticias falsas</h1>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToNext()">
+            <span class="scroll-text">Scroll Down</span>
+            <span class="scroll-arrow">↓</span>
+        </div>
+    </section>
 
-        <!-- Content Sections -->
-        <section class="story-section content-section" id="proceso">
-            
-            <!-- Infografía: El Impacto -->
-            <div class="infographic-section infographic-1">
-                <div class="infographic-content">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">El Impacto de la Desinformación</h2>
-                    <p style="font-size: 1.2rem;">Observa cómo la desinformación ataca los pilares democráticos</p>
-                </div>
+    <!-- White Section -->
+    <section class="white-section">
+        <div class="white-content">
+            <p>Las noticias falsas no surgen por casualidad. Detrás de cada titular manipulado o imagen distorsionada existe un proceso planificado que busca influir en la percepción pública, generar confusión y, en muchos casos, dividir a la sociedad.</p>
+            <br>
+            <p>Este recorrido en cinco etapas revela cómo una mentira se fabrica, se instala y se amplifica hasta llegar a miles o millones de personas. Comprender cada paso es clave para identificarla, frenarla y proteger el debate democrático.</p>
+        </div>
+    </section>
+
+    <!-- Three Column Section -->
+    <section class="three-column-section" id="three-columns">
+        <div class="columns-container">
+            <!-- Column 1 - Always visible -->
+            <div class="column-1">
+                <h2>1. Creación del Contenido Falso</h2>
+                <p class="objetivo">Objetivo: Fabricar una mentira con propósito claro.</p>
             </div>
 
-            <!-- Mobile version -->
-            <div class="mobile-infographic">
-                <img src="/democracia-fake/assets/infografia-anatomia-mobile-YL3H7bVM.svg" alt="5 Pasos de la Desinformación" />
-            </div>
-            
-            <!-- Sección 1 -->
-            <div class="narrative-section animate-on-scroll">
-                <div class="step-header">
-                    <span class="step-number">1</span>
-                    <h2 class="section-title">Creación del Contenido Falso</h2>
-                </div>
+            <!-- Background Image -->
+            <div class="background-image" id="background-img"></div>
+
+            <!-- Column 2 - Hidden initially -->
+            <div class="column-2" id="column-2">
+                <h3>Formas comunes de creación:</h3>
+                <ul>
+                    <li>Inventar datos, frases o hechos desde cero.</li>
+                    <li>Manipular imágenes, videos o audios (deepfakes, montajes).</li>
+                    <li>Sacar de contexto eventos o declaraciones reales.</li>
+                    <li>Exagerar o distorsionar información parcial.</li>
+                </ul>
                 
-                <div class="section-objective">
-                    <strong>Objetivo:</strong> Fabricar una mentira con propósito claro
-                </div>
-
-                <div class="content-card">
-                    <h3 class="card-title">Formas comunes de creación:</h3>
-                    <ul class="info-list">
-                        <li>Inventar datos, frases o hechos desde cero</li>
-                        <li>Manipular imágenes, videos o audios (deepfakes, montajes)</li>
-                        <li>Sacar de contexto eventos o declaraciones reales</li>
-                        <li>Exagerar o distorsionar información parcial</li>
-                    </ul>
-                </div>
-
-                <p class="section-text">
-                    <strong>Temas más usados:</strong> migración, fraude electoral, violencia, derechos civiles, seguridad pública
-                </p>
-
-                <div class="highlight-stat">
-                    <p class="stat-text">Las fake news se difunden un 70% más rápido que las verdaderas (MIT, 2018)</p>
+                <div class="temas-section">
+                    <p>Temas más usados:</p>
+                    <span>migración, fraude electoral, violencia, derechos civiles, seguridad pública.</span>
                 </div>
             </div>
 
-            <!-- Sección 2 -->
-            <div class="narrative-section animate-on-scroll">
-                <div class="step-header">
-                    <span class="step-number">2</span>
-                    <h2 class="section-title">Plantación en Redes</h2>
+            <!-- Column 3 - Hidden initially -->
+            <div class="column-3" id="column-3">
+                <div class="quote">
+                    <div class="quote-large">Las fake news</div>
+                    <div class="quote-medium">se difunden un</div>
+                    <div class="quote-large">70%</div>
+                    <div class="quote-medium">más rápido</div>
+                    <div class="quote-small">que las verdaderas</div>
                 </div>
-                
-                <div class="section-objective">
-                    <strong>Objetivo:</strong> Introducir el contenido falso sin levantar sospechas
-                </div>
-
-                <div class="content-card">
-                    <h3 class="card-title">Cómo se hace:</h3>
-                    <ul class="info-list">
-                        <li>Publicar desde cuentas anónimas o bots recién creados</li>
-                        <li>Simular que la publicación es orgánica</li>
-                        <li>Usar VPN o ubicaciones falsas para aparentar diversidad geográfica</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <h3 class="card-title">Características clave:</h3>
-                    <ul class="info-list">
-                        <li>Las cuentas "semilla" no tienen rostro ni historia</li>
-                        <li>Muchas veces no se puede rastrear el origen</li>
-                        <li>Suele parecer un dato "espontáneo" o una "filtración"</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Sección 3 -->
-            <div class="narrative-section animate-on-scroll">
-                <div class="step-header">
-                    <span class="step-number">3</span>
-                    <h2 class="section-title">Amplificación Automatizada</h2>
-                </div>
-                
-                <div class="section-objective">
-                    <strong>Objetivo:</strong> Hacer que el contenido gane visibilidad masiva
-                </div>
-
-                <div class="content-card">
-                    <h3 class="card-title">Tácticas usadas:</h3>
-                    <ul class="info-list">
-                        <li>Redes de bots o trolls sincronizados</li>
-                        <li>Interacciones falsas (likes, comentarios, retuits)</li>
-                        <li>Uso de hashtags o frases llamativas para enganchar</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <h3 class="card-title">Lo que logran:</h3>
-                    <ul class="info-list">
-                        <li>Engañar a los algoritmos de redes sociales</li>
-                        <li>Crear la ilusión de consenso o interés general</li>
-                        <li>Posicionar el contenido en trending topics o sugerencias automáticas</li>
-                    </ul>
-                </div>
-
-                <p class="section-text">
-                    <strong>Efecto final:</strong> Hace que usuarios reales crean que es un tema legítimo o importante
-                </p>
-            </div>
-
-            <!-- Sección 4 -->
-            <div class="narrative-section animate-on-scroll">
-                <div class="step-header">
-                    <span class="step-number">4</span>
-                    <h2 class="section-title">Difusión por Figuras o Medios</h2>
-                </div>
-                
-                <div class="section-objective">
-                    <strong>Objetivo:</strong> Legitimar el contenido falso ante grandes audiencias
-                </div>
-
-                <div class="content-card">
-                    <h3 class="card-title">Cómo se multiplica:</h3>
-                    <ul class="info-list">
-                        <li>Influencers, periodistas o políticos comparten sin verificar</li>
-                        <li>Medios lo retoman como "tema de discusión" o "noticia en desarrollo"</li>
-                        <li>La desinformación se presenta como válida aunque luego se desmienta</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <h3 class="card-title">Consecuencias:</h3>
-                    <ul class="info-list">
-                        <li>Aumenta la credibilidad del bulo</li>
-                        <li>Llega a nuevos públicos que no vieron la fuente original</li>
-                        <li>Aunque se corrija, el daño ya está hecho</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Sección 5 -->
-            <div class="narrative-section animate-on-scroll">
-                <div class="step-header">
-                    <span class="step-number">5</span>
-                    <h2 class="section-title">Recepción, Creencia y Polarización</h2>
-                </div>
-                
-                <div class="section-objective">
-                    <strong>Objetivo:</strong> Instalar duda, fragmentar la opinión pública y debilitar la confianza
-                </div>
-
-                <div class="content-card">
-                    <h3 class="card-title">Factores que facilitan la creencia:</h3>
-                    <ul class="info-list">
-                        <li>El contenido refuerza ideas previas (sesgo de confirmación)</li>
-                        <li>Genera emociones fuertes (indignación, miedo, identidad)</li>
-                        <li>Circula entre grupos cerrados o cámaras de eco</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <h3 class="card-title">Efectos sociales:</h3>
-                    <ul class="info-list">
-                        <li>Aumenta la polarización y la desconfianza institucional</li>
-                        <li>Las personas comparten sin verificar porque "suena creíble"</li>
-                        <li>Las rectificaciones a veces amplifican el contenido sin querer</li>
-                    </ul>
-                </div>
-
-                <div class="highlight-stat">
-                    <p class="stat-text">La desinformación no solo engaña, también erosiona la democracia al debilitar el debate público</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Infografía: Anatomía Completa -->
-        <div class="infographic-section infographic-2">
-            <div class="infographic-content">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Anatomía de la Desinformación</h2>
-                <p style="font-size: 1.2rem;">Visualiza el ecosistema completo de la manipulación digital</p>
+                <div class="quote-source">(MIT, 2018)</div>
             </div>
         </div>
-
-        <!-- Final CTA Section -->
-        <section class="story-section final-cta">
-            <div class="section-content">
-                <h2 class="section-title animate-on-scroll">Es momento de actuar</h2>
-                <p class="section-text animate-on-scroll">
-                    Chile necesita una ley contra la desinformación que proteja nuestra democracia sin comprometer la libertad de expresión
-                </p>
-                <div class="cta-buttons animate-on-scroll">
-                    <a href="#nueva-ley" class="cta-button">Conoce la Propuesta de Ley</a>
-                    <a href="#" class="cta-button secondary" onclick="shareContent()">Comparte esta información</a>
-                </div>
-            </div>
-        </section>
-    </main>
+    </section>
 
     <script>
+        // Smooth scroll function
+        function scrollToNext() {
+            document.querySelector('.white-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
         // Intersection Observer for scroll animations
         document.addEventListener('DOMContentLoaded', function() {
-            initScrollAnimations();
-            initSmoothScroll();
-        });
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -100px 0px'
+            };
 
-        function initScrollAnimations() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
+                        const target = entry.target;
+                        
+                        if (target.id === 'three-columns') {
+                            // Start the animation sequence
+                            setTimeout(() => {
+                                showColumn2();
+                            }, 500);
+                            
+                            setTimeout(() => {
+                                showColumn3();
+                            }, 1300);
+                        }
                     }
                 });
-            }, { 
-                threshold: 0.1, 
-                rootMargin: '50px 0px' 
-            });
+            }, observerOptions);
 
-            // Apply to all elements with animate-on-scroll class
-            document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                observer.observe(el);
-            });
-        }
-
-        function initSmoothScroll() {
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        }
-
-        function shareContent() {
-            if (navigator.share) {
-                navigator.share({
-                    title: '#DefendeLaDemocracia - Anatomía de la Desinformación',
-                    text: 'Conoce cómo funciona la desinformación en 5 etapas y por qué amenaza nuestra democracia.',
-                    url: window.location.href
-                });
-            } else {
-                // Fallback for browsers that don't support Web Share API
-                const url = window.location.href;
-                const text = `#DefendeLaDemocracia - Anatomía de la Desinformación: ${url}`;
-                
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(text).then(() => {
-                        alert('Enlace copiado al portapapeles');
-                    });
-                } else {
-                    // Fallback for older browsers
-                    const textArea = document.createElement('textarea');
-                    textArea.value = text;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
-                    alert('Enlace copiado al portapapeles');
-                }
+            // Observe the three-column section
+            const threeColumnSection = document.getElementById('three-columns');
+            if (threeColumnSection) {
+                observer.observe(threeColumnSection);
             }
-        }
-
-        // Performance optimization
-        window.addEventListener('beforeunload', function() {
-            // Cleanup any observers or intervals if needed
         });
 
-        // Error handling
-        window.addEventListener('error', function(e) {
-            console.warn('Error caught:', e.error);
+        function showColumn2() {
+            const backgroundImg = document.getElementById('background-img');
+            const column2 = document.getElementById('column-2');
+            
+            // Split the background image to show only right half
+            backgroundImg.classList.add('split');
+            
+            // Show column 2
+            column2.classList.add('visible');
+        }
+
+        function showColumn3() {
+            const column3 = document.getElementById('column-3');
+            
+            // Show column 3
+            column3.classList.add('visible');
+        }
+
+        // Handle scroll indicator
+        window.addEventListener('scroll', function() {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 100) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
         });
     </script>
 </body>
