@@ -468,15 +468,18 @@
         /* Hero Section - Seccion 2 */
         .hero-section-2 {
             position: relative;
-            min-height: 200vh; /* Doble altura para permitir el scroll interno */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 200vh; /* Doble altura para permitir el scroll interno */
+        }
+
+        .hero-section-2 .sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
             overflow: hidden;
         }
 
         .hero-section-2 .image-layer {
-            position: fixed; /* Cambio a fixed para mejor control */
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -489,15 +492,13 @@
         .hero-section-2 .image-layer-1 {
             background-image: url('./p1.png');
             z-index: 1;
-            display: none; /* Inicialmente oculto */
         }
 
         .hero-section-2 .image-layer-2 {
             background-image: url('./p2.png');
             z-index: 2;
-            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); /* Inicialmente invisible desde abajo */
-            transition: clip-path 0.1s ease-out;
-            display: none; /* Inicialmente oculto */
+            transform: translateY(100%);
+            transition: transform 0.1s ease-out;
         }
 
         /* Section 3 - Plantación en Redes */
@@ -653,12 +654,11 @@
             }
             
             .hero-section-2 {
-                min-height: 150vh; /* Menor altura en mobile */
+                height: 150vh; /* Menor altura en mobile */
             }
             
             .hero-section-2 .image-layer {
                 background-attachment: scroll;
-                position: fixed;
             }
             
             .hero-title {
@@ -791,9 +791,10 @@
 
     <!-- Hero Section 2 -->
     <section class="hero-section-2" id="hero-section-2">
-        <div class="image-layer image-layer-1"></div>
-        <div class="image-layer image-layer-2"></div>
-        <!-- Content can be added here if needed -->
+        <div class="sticky-container">
+            <div class="image-layer image-layer-1"></div>
+            <div class="image-layer image-layer-2"></div>
+        </div>
     </section>
 
     <!-- Section 3 - Plantación en Redes -->
@@ -846,49 +847,28 @@
         // Handle hero section 2 image transition on scroll
         window.addEventListener('scroll', function() {
             const heroSection2 = document.getElementById('hero-section-2');
-            const imageLayer1 = document.querySelector('.image-layer-1');
             const imageLayer2 = document.querySelector('.image-layer-2');
             
-            if (heroSection2 && imageLayer1 && imageLayer2) {
+            if (heroSection2 && imageLayer2) {
                 const rect = heroSection2.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
                 const sectionHeight = heroSection2.offsetHeight;
+                const windowHeight = window.innerHeight;
                 
-                // Cuando la sección entra en el viewport
-                if (rect.top <= 0 && rect.bottom > windowHeight) {
-                    // Mostrar las imágenes fijas
-                    imageLayer1.style.display = 'block';
-                    imageLayer2.style.display = 'block';
-                    
+                // Solo cuando la sección está en el viewport
+                if (rect.top <= 0 && rect.bottom > 0) {
                     // Calcular el progreso del scroll dentro de la sección
                     const scrollProgress = Math.abs(rect.top) / (sectionHeight - windowHeight);
                     const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
                     
-                    // La transición comienza cuando hemos scrolleado un 20% de la sección
-                    // y termina cuando hemos scrolleado un 80%
-                    const transitionStart = 0.2;
-                    const transitionEnd = 0.8;
-                    
-                    if (clampedProgress < transitionStart) {
-                        // Mostrar solo p1
-                        imageLayer2.style.clipPath = 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)';
-                    } else if (clampedProgress > transitionEnd) {
-                        // Mostrar solo p2
-                        imageLayer2.style.clipPath = 'polygon(0 0%, 100% 0%, 100% 100%, 0 100%)';
-                    } else {
-                        // Transición: p2 aparece de abajo hacia arriba
-                        const transitionProgress = (clampedProgress - transitionStart) / (transitionEnd - transitionStart);
-                        const revealPercentage = transitionProgress * 100;
-                        imageLayer2.style.clipPath = `polygon(0 ${100 - revealPercentage}%, 100% ${100 - revealPercentage}%, 100% 100%, 0 100%)`;
-                    }
+                    // p2 comienza a subir desde abajo cuando el scroll progresa
+                    const translateY = 100 - (clampedProgress * 100);
+                    imageLayer2.style.transform = `translateY(${translateY}%)`;
                 } else if (rect.top > 0) {
-                    // Antes de entrar al viewport
-                    imageLayer1.style.display = 'none';
-                    imageLayer2.style.display = 'none';
-                } else if (rect.bottom <= windowHeight) {
-                    // Después de salir del viewport - mantener p2 visible
-                    imageLayer1.style.display = 'none';
-                    imageLayer2.style.display = 'none';
+                    // Antes de entrar al viewport - p2 abajo
+                    imageLayer2.style.transform = 'translateY(100%)';
+                } else {
+                    // Después de salir del viewport - p2 arriba
+                    imageLayer2.style.transform = 'translateY(0%)';
                 }
             }
         });
