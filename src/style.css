@@ -154,8 +154,8 @@ body:not(.verdad-mode) {
 }
 
 .logo {
-  max-width: 300px;
-  max-height: 200px;
+  max-width: 600px;
+  max-height: 400px;
   width: 100%;
   height: auto;
   transition: all 0.5s ease;
@@ -1109,8 +1109,8 @@ body.verdad-mode .modal-switch input:checked + .modal-slider:before {
   }
   
   .logo {
-    max-width: 250px;
-    max-height: 150px;
+    max-width: 500px;
+    max-height: 300px;
   }
   
   .mode-switch-container {

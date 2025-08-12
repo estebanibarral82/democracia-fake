@@ -196,204 +196,12 @@
             font-style: italic;
         }
 
-        /* Journey Progress Timeline */
-        .journey-progress {
-            position: fixed;
-            right: 3rem;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 50;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .progress-line {
-            width: 2px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.2);
-            position: relative;
-            margin: 1rem 0;
-        }
-
-        .progress-fill {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: var(--color-primary);
-            transition: height 0.3s ease;
-            height: 0%;
-        }
-
-        .progress-steps {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 0;
-        }
-
-        .progress-step {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-family-title);
-            font-weight: 700;
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            margin: -20px 0;
-        }
-
-        .progress-step.active {
-            background: var(--color-primary);
-            border-color: var(--color-primary);
-            color: white;
-            transform: scale(1.2);
-        }
-
-        .progress-step.completed {
-            background: rgba(233, 80, 64, 0.8);
-            border-color: var(--color-primary);
-            color: white;
-        }
-
-        .progress-step:hover {
-            background: rgba(233, 80, 64, 0.6);
-            border-color: var(--color-primary);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .step-tooltip {
-            position: absolute;
-            right: 60px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-
-        .progress-step:hover .step-tooltip {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Journey connectors between sections */
-        .section-connector {
-            position: absolute;
-            left: 50%;
-            bottom: -50px;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 50px;
-            background: linear-gradient(to bottom, rgba(233, 80, 64, 0.8), rgba(233, 80, 64, 0.2));
-            opacity: 0;
-            transition: opacity 0.8s ease;
-            z-index: 10;
-        }
-
-        .section-connector::after {
-            content: '▼';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--color-primary);
-            font-size: 1.2rem;
-            animation: arrowBounce 2s infinite;
-        }
-
-        @keyframes arrowBounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-3px);
-            }
-        }
-
-        .anatomy-section.in-view .section-connector {
-            opacity: 1;
-        }
-
-        /* Journey Breadcrumb */
-        .journey-breadcrumb {
-            position: fixed;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(9, 7, 6, 0.95);
-            border: 1px solid rgba(233, 80, 64, 0.3);
-            border-radius: 25px;
-            padding: 0.8rem 2rem;
-            z-index: 90;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .journey-breadcrumb.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .breadcrumb-text {
-            font-family: var(--font-family-title);
-            font-size: 0.9rem;
-            color: var(--color-text);
-            margin: 0;
-        }
-
-        .breadcrumb-progress {
-            color: var(--color-primary);
-            font-weight: 700;
-        }
-
-        .breadcrumb-section {
-            color: var(--color-secondary);
-            font-size: 0.8rem;
-            margin-top: 0.2rem;
-        }
-
         /* Base Styles for all anatomy sections */
         .anatomy-section {
           position: relative;
           min-height: 100vh;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          opacity: 0;
-          transform: translateY(50px);
-          transition: all 0.8s ease;
-        }
-
-        .anatomy-section.in-view {
-          opacity: 1;
-          transform: translateY(0);
         }
 
         .anatomy-section .left-column,
@@ -403,25 +211,6 @@
             flex-direction: column;
             justify-content: center;
             position: relative;
-            transform: translateX(-30px);
-            opacity: 0;
-            transition: all 0.6s ease;
-            transition-delay: 0.2s;
-        }
-
-        .anatomy-section.in-view .left-column,
-        .anatomy-section.in-view .right-column {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .anatomy-section .right-column {
-            transform: translateX(30px);
-            transition-delay: 0.4s;
-        }
-
-        .anatomy-section.in-view .right-column {
-            transform: translateX(0);
         }
 
         .anatomy-section .left-column::before,
@@ -536,9 +325,6 @@
             background-color: #666 !important;
             background-size: cover !important;
             background-position: center !important;
-            background-attachment: fixed !important;
-            will-change: transform;
-            transition: transform 0.1s ease-out;
         }
 
         .image-column::before {
@@ -785,50 +571,6 @@
             .image-column {
                 background-attachment: scroll !important;
             }
-
-            /* Journey progress mobile adjustments */
-            .journey-progress {
-                right: 1rem;
-                transform: translateY(-50%) scale(0.8);
-            }
-
-            .progress-line {
-                height: 200px;
-            }
-
-            .progress-step {
-                width: 30px;
-                height: 30px;
-                font-size: 0.8rem;
-                margin: -15px 0;
-            }
-
-            .step-tooltip {
-                right: 45px;
-                font-size: 0.8rem;
-                padding: 0.3rem 0.6rem;
-            }
-
-            /* Breadcrumb mobile adjustments */
-            .journey-breadcrumb {
-                top: 1rem;
-                padding: 0.6rem 1.5rem;
-                font-size: 0.8rem;
-            }
-
-            .breadcrumb-section {
-                font-size: 0.7rem;
-            }
-
-            /* Hide section connectors on mobile */
-            .section-connector {
-                display: none;
-            }
-
-            /* Disable parallax on mobile for performance */
-            .image-column {
-                background-attachment: scroll !important;
-            }
         }
     </style>
 </head>
@@ -836,16 +578,6 @@
 <body>
     <!-- Back Navigation -->
     <a href="index.html" class="nav-back">← Volver al sitio principal</a>
-
-    <!-- Journey Breadcrumb -->
-    <div class="journey-breadcrumb" id="journey-breadcrumb">
-        <div class="breadcrumb-text">
-            <span class="breadcrumb-progress">Paso 1 de 5</span>
-        </div>
-        <div class="breadcrumb-section" id="breadcrumb-section">
-            Creación del Contenido Falso
-        </div>
-    </div>
 
     <!-- Hero Header -->
     <section class="hero-header">
@@ -906,7 +638,6 @@
                 </div>
             </div>
         </div>
-        <div class="section-connector"></div>
     </section>
 
     <!-- Section 2 - Plantación en Redes: texto izquierda, imagen derecha -->
@@ -936,7 +667,6 @@
             <h2>2. Plantación en Redes</h2>
             <p class="subtitle">Introducir el contenido falso sin levantar sospechas.</p>
         </div>
-        <div class="section-connector"></div>
     </section>
 
     <!-- Section 3 - Amplificación Automatizada: imagen izquierda, texto derecha -->
@@ -973,7 +703,6 @@
                 </div>
             </div>
         </div>
-        <div class="section-connector"></div>
     </section>
 
     <!-- Section 4 - Difusión por Figuras o Medios: texto izquierda, imagen derecha -->
@@ -1003,7 +732,6 @@
             <h2>4. Difusión por Figuras o Medios</h2>
             <p class="subtitle">Legitimar el contenido falso ante grandes audiencias.</p>
         </div>
-        <div class="section-connector"></div>
     </section>
 
     <!-- Section 5 - Recepción, Creencia y Polarización: imagen izquierda, texto derecha -->
@@ -1047,35 +775,6 @@
         </div>
     </section>
 
-    <!-- Journey Progress Timeline -->
-    <div class="journey-progress">
-        <div class="progress-line">
-            <div class="progress-fill" id="progress-fill"></div>
-            <div class="progress-steps">
-                <div class="progress-step" data-step="1" onclick="scrollToSection(1)">
-                    1
-                    <div class="step-tooltip">Creación del Contenido Falso</div>
-                </div>
-                <div class="progress-step" data-step="2" onclick="scrollToSection(2)">
-                    2
-                    <div class="step-tooltip">Plantación en Redes</div>
-                </div>
-                <div class="progress-step" data-step="3" onclick="scrollToSection(3)">
-                    3
-                    <div class="step-tooltip">Amplificación Automatizada</div>
-                </div>
-                <div class="progress-step" data-step="4" onclick="scrollToSection(4)">
-                    4
-                    <div class="step-tooltip">Difusión por Figuras o Medios</div>
-                </div>
-                <div class="progress-step" data-step="5" onclick="scrollToSection(5)">
-                    5
-                    <div class="step-tooltip">Recepción y Polarización</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
         // Smooth scroll function
         function scrollToNext() {
@@ -1084,127 +783,14 @@
             });
         }
 
-        // Journey navigation - scroll to specific section
-        function scrollToSection(stepNumber) {
-            const sectionMap = {
-                1: '.section-creacion',
-                2: '.section-plantacion', 
-                3: '.section-amplificacion',
-                4: '.section-difusion',
-                5: '.section-recepcion'
-            };
-            
-            const targetSection = document.querySelector(sectionMap[stepNumber]);
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-            }
-        }
-
-        // Journey Progress Tracking
-        function updateJourneyProgress() {
-            const sections = document.querySelectorAll('.anatomy-section');
-            const progressFill = document.getElementById('progress-fill');
-            const progressSteps = document.querySelectorAll('.progress-step');
-            const breadcrumb = document.getElementById('journey-breadcrumb');
-            const breadcrumbSection = document.getElementById('breadcrumb-section');
-            
-            const scrollTop = window.pageYOffset;
-            const windowHeight = window.innerHeight;
-            
-            let activeSection = 0;
-            let totalProgress = 0;
-            let currentSectionName = '';
-            
-            const sectionNames = [
-                'Creación del Contenido Falso',
-                'Plantación en Redes', 
-                'Amplificación Automatizada',
-                'Difusión por Figuras o Medios',
-                'Recepción y Polarización'
-            ];
-            
-            sections.forEach((section, index) => {
-                const rect = section.getBoundingClientRect();
-                const sectionTop = rect.top + scrollTop;
-                const sectionHeight = rect.height;
-                
-                // Check if section is in view for animations
-                if (rect.top < windowHeight * 0.75 && rect.bottom > windowHeight * 0.25) {
-                    section.classList.add('in-view');
-                    activeSection = index + 1;
-                    currentSectionName = sectionNames[index];
-                    
-                    // Calculate progress within this section
-                    const sectionProgress = Math.max(0, Math.min(1, 
-                        (scrollTop + windowHeight / 2 - sectionTop) / sectionHeight
-                    ));
-                    
-                    totalProgress = (index + sectionProgress) / sections.length;
-                }
-            });
-            
-            // Update progress bar
-            if (progressFill) {
-                progressFill.style.height = (totalProgress * 100) + '%';
-            }
-            
-            // Update breadcrumb
-            if (activeSection > 0 && breadcrumb && breadcrumbSection) {
-                breadcrumb.classList.add('visible');
-                breadcrumb.querySelector('.breadcrumb-progress').textContent = `Paso ${activeSection} de 5`;
-                breadcrumbSection.textContent = currentSectionName;
-            } else if (breadcrumb) {
-                breadcrumb.classList.remove('visible');
-            }
-            
-            // Update step indicators
-            progressSteps.forEach((step, index) => {
-                const stepNumber = index + 1;
-                step.classList.remove('active', 'completed');
-                
-                if (stepNumber < activeSection) {
-                    step.classList.add('completed');
-                } else if (stepNumber === activeSection) {
-                    step.classList.add('active');
-                }
-            });
-        }
-
-        // Parallax effect for image backgrounds
-        function updateParallax() {
-            const imageColumns = document.querySelectorAll('.image-column');
-            const scrollTop = window.pageYOffset;
-            
-            imageColumns.forEach(column => {
-                const rect = column.getBoundingClientRect();
-                const speed = 0.5; // Parallax speed
-                
-                if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
-                    const yPos = -(scrollTop * speed);
-                    column.style.backgroundPositionY = `${yPos}px`;
-                }
-            });
-        }
-
-        // Handle scroll events
+        // Handle scroll indicator
         window.addEventListener('scroll', function() {
             const scrollIndicator = document.querySelector('.scroll-indicator');
-            
-            // Hide scroll indicator after scrolling
             if (window.scrollY > 100) {
                 scrollIndicator.style.opacity = '0';
             } else {
                 scrollIndicator.style.opacity = '1';
             }
-            
-            // Update journey progress
-            updateJourneyProgress();
-            
-            // Update parallax effect
-            updateParallax();
         });
 
         // Image Comparison Slider functionality
@@ -1273,10 +859,7 @@
         }
 
         // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeImageComparison();
-            updateJourneyProgress(); // Initial call
-        });
+        document.addEventListener('DOMContentLoaded', initializeImageComparison);
     </script>
 </body>
 </html>

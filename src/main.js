@@ -290,10 +290,10 @@ class DemocraciaFake {
     const logo = document.getElementById('mainLogo');
     if (logo) {
       if (this.currentMode === 'verdad') {
-        logo.src = 'header-verdad.png';
+        logo.src = 'img/FAKECRACIA-LOGO2.png';
         logo.alt = 'Democracia Fake - Verdad';
       } else {
-        logo.src = 'header-mentira.png';
+        logo.src = 'img/FAKECRACIA-LOGO1.png';
         logo.alt = 'Democracia Fake - Montaje';
       }
     }
