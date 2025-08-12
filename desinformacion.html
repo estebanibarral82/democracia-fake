@@ -492,6 +492,7 @@
         .hero-section-2 .image-layer-1 {
             background-image: url('./p1.png');
             z-index: 1;
+            opacity: 1; /* Siempre visible */
         }
 
         .hero-section-2 .image-layer-2 {
@@ -499,6 +500,7 @@
             z-index: 2;
             transform: translateY(100%);
             transition: transform 0.1s ease-out;
+            opacity: 1; /* Siempre visible */
         }
 
         /* Section 3 - Plantación en Redes */
@@ -854,22 +856,27 @@
                 const sectionHeight = heroSection2.offsetHeight;
                 const windowHeight = window.innerHeight;
                 
-                // Solo cuando la sección está en el viewport
-                if (rect.top <= 0 && rect.bottom > 0) {
-                    // Calcular el progreso del scroll dentro de la sección
-                    const scrollProgress = Math.abs(rect.top) / (sectionHeight - windowHeight);
-                    const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
-                    
-                    // p2 comienza a subir desde abajo cuando el scroll progresa
-                    const translateY = 100 - (clampedProgress * 100);
-                    imageLayer2.style.transform = `translateY(${translateY}%)`;
-                } else if (rect.top > 0) {
-                    // Antes de entrar al viewport - p2 abajo
-                    imageLayer2.style.transform = 'translateY(100%)';
-                } else {
-                    // Después de salir del viewport - p2 arriba
-                    imageLayer2.style.transform = 'translateY(0%)';
+                // Mostrar imágenes cuando la sección está visible (incluso parcialmente)
+                if (rect.bottom > 0 && rect.top < windowHeight) {
+                    // La sección está visible - calcular progreso
+                    if (rect.top <= 0 && rect.bottom > 0) {
+                        // La sección está siendo scrolleada
+                        const scrollProgress = Math.abs(rect.top) / (sectionHeight - windowHeight);
+                        const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
+                        
+                        // p2 sube gradualmente según el scroll
+                        const translateY = 100 - (clampedProgress * 100);
+                        imageLayer2.style.transform = `translateY(${translateY}%)`;
+                    } else if (rect.top > 0) {
+                        // Sección visible pero aún no ha llegado al top - mostrar p1
+                        imageLayer2.style.transform = 'translateY(100%)';
+                    } else {
+                        // Sección ha pasado completamente - mostrar p2
+                        imageLayer2.style.transform = 'translateY(0%)';
+                    }
                 }
+                // No ocultar las imágenes cuando la sección no esté visible
+                // para evitar el espacio negro
             }
         });
     </script>
