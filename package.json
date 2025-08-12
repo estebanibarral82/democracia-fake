@@ -1,14 +1,18 @@
 {
   "name": "democracia-fake",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve": "vite preview --port 3000",
+    "clean": "rm -rf dist node_modules/.vite",
+    "deploy": "npm run build && bash deploy.sh"
   },
   "devDependencies": {
+    "terser": "^5.43.1",
     "vite": "^7.1.0"
   }
 }

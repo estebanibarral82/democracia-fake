@@ -1,16 +1,31 @@
 # Democracia Fake
 
-# Democracia Fake
-
 Un sitio web interactivo que confronta la manipulación mediática en Chile con la verdad verificada. El proyecto presenta una experiencia de modo dual que permite a los usuarios comparar titulares manipulados con hechos verificados.
 
-## 🚀 Características
+## 🚀 Características Principales
 
-- **Interfaz de modo dual**: Mentira vs Verdad
-- **Logo central dinámico** que cambia según el modo
-- **Menú hamburguesa** con navegación fluida
-- **Timeline interactivo** con efectos parallax
-- **Cambio dinámico de contenido** basado en el modo seleccionado
+- **Interfaz de modo dual**: Mentira vs Verdad con switch dinámico
+- **Sistema de logos dinámico** que cambia según el modo activo
+- **Menú hamburguesa** con navegación fluida entre secciones
+- **Journey Navigation**: Sistema de navegación por pasos con timeline interactivo
+- **Anatomía de Fake News**: Recorrido educativo de 5 etapas
+- **Efectos parallax** y animaciones suaves
+- **Diseño completamente responsivo**
+- **Optimización SEO** con meta tags completos
+
+## 📖 Secciones del Sitio
+
+### Página Principal (index.html)
+- Switch Mentira/Verdad con logos dinámicos
+- Menú de navegación: Inicio, Proyecto, Verdad/Mentira, Nueva Ley de Medios, Firma
+- Contenido que cambia según el modo seleccionado
+
+### Anatomía de Fake News (desinformacion.html)
+1. **Creación del Contenido Falso** - Fabricación de mentiras con propósito
+2. **Plantación en Redes** - Introducción sin levantar sospechas
+3. **Amplificación Automatizada** - Bots y trolls para ganar visibilidad
+4. **Difusión por Figuras o Medios** - Legitimación ante grandes audiencias
+5. **Recepción y Polarización** - Instalación de duda y fragmentación social
 
 ## 🎨 Paleta de Colores
 
@@ -24,15 +39,17 @@ Un sitio web interactivo que confronta la manipulación mediática en Chile con 
 
 1. **Special Gothic Condensed One** (sans-serif condensed): Títulos, botones, texto del switch (MONTAJE / VERDAD)
 2. **Chivo Mono** (monospace): Subtítulos, texto introductorio bajo header
-3. **Roboto** (sans-serif): Footer, textos secundarios y legales
+3. **PT Serif** (serif): Contenido principal, cuerpo de texto
+4. **Roboto** (sans-serif): Footer, textos secundarios y legales
 
 ## 🛠️ Tecnologías
 
-- Vanilla JavaScript con Vite
-- CSS personalizado con variables
-- Diseño responsivo
-- Efectos parallax para timeline
-- Animaciones suaves de cambio de modo
+- **Frontend**: Vanilla JavaScript con Vite 7.1.2
+- **Estilos**: CSS personalizado con variables CSS
+- **Build Tool**: Vite con optimizaciones de terser
+- **Fuentes**: Google Fonts con preload
+- **Multimedia**: Video backgrounds, imágenes optimizadas
+- **SEO**: Meta tags Open Graph y Twitter Cards
 
 ## 🌐 Demo
 
