@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anatomía de las Fakenews - Democracia Fake</title>
+    <title>Anatomía de las Fakenews - Democracia Fake v2</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Chivo+Mono:wght@400;500;700&display=swap&v=2" rel="stylesheet">
@@ -119,6 +119,34 @@
             background-color: #ffffff;
             color: #333333;
             padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .white-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+            opacity: 1;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .white-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.25'/%3E%3C/svg%3E");
+            background-size: 150px 150px;
+            opacity: 1;
+            pointer-events: none;
+            z-index: 2;
         }
 
         .white-content {
@@ -128,6 +156,8 @@
             font-size: 1.2rem;
             line-height: 1.8;
             text-align: left;
+            position: relative;
+            z-index: 2;
         }
 
         .white-content p {
@@ -151,15 +181,47 @@
 
         /* Column 1 - Always visible */
         .column-1 {
-            background-color: var(--color-background);
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .column-1-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .column-1-content {
+            position: relative;
+            z-index: 3;
             padding: 4rem 2rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            z-index: 3;
+            height: 100%;
         }
 
-        .column-1 h2 {
+        .column-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(9, 7, 6, 0.9);
+            z-index: 2;
+        }
+
+        .column-1-content h2 {
             font-family: var(--font-family-title);
             color: var(--color-primary);
             font-size: 53px;
@@ -167,47 +229,51 @@
             margin-bottom: 0.5rem;
         }
 
-        .column-1 .objetivo {
+        .column-1-content .objetivo {
             font-family: var(--font-family-subtitle);
             color: var(--color-text);
             font-size: 1.1rem;
             line-height: 1;
         }
 
-        /* Background Image - Initially covers columns 2 and 3 */
-        .background-image {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 66.66%;
-            height: 100%;
-            background: url('./img/seccion1.png');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-            transition: width 0.8s ease-out;
-        }
-
-        .background-image.split {
-            width: 33.33%;
-        }
-
-        /* Column 2 - Hidden initially, revealed on scroll */
+        /* Column 2 - Always visible */
         .column-2 {
             background-color: #2a2a2a;
             padding: 4rem 2rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            opacity: 0;
-            transform: translateX(-100%);
-            transition: all 0.8s ease-out;
-            z-index: 2;
-        }
-
-        .column-2.visible {
             opacity: 1;
             transform: translateX(0);
+            z-index: 2;
+            position: relative;
+        }
+
+        .column-2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grainNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grainNoise)' opacity='0.5'/%3E%3C/svg%3E");
+            background-size: 120px 120px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .column-2::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='concreteNoise'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.15' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23concreteNoise)' opacity='0.3'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+            opacity: 1;
+            pointer-events: none;
+            z-index: 2;
         }
 
         .column-2 h3 {
@@ -216,11 +282,15 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
         }
 
         .column-2 ul {
             list-style: none;
             margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
         }
 
         .column-2 li {
@@ -229,6 +299,7 @@
             margin-bottom: 0.8rem;
             padding-left: 1rem;
             position: relative;
+            z-index: 2;
         }
 
         .column-2 li::before {
@@ -243,6 +314,8 @@
             margin-top: 2rem;
             padding-top: 2rem;
             border-top: 1px solid #333;
+            position: relative;
+            z-index: 2;
         }
 
         .temas-section p {
@@ -250,15 +323,19 @@
             color: var(--color-text);
             font-weight: 700;
             margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
         }
 
         .temas-section span {
             font-family: var(--font-family-body);
             color: var(--color-secondary);
             font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Column 3 - Hidden initially, revealed after column 2 */
+        /* Column 3 - Always visible */
         .column-3 {
             background-color: var(--color-primary);
             padding: 4rem 2rem;
@@ -267,17 +344,38 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: all 0.8s ease-out 0.4s;
+            opacity: 1;
+            transform: translateX(0);
             z-index: 2;
             position: relative;
             overflow: hidden;
         }
 
-        .column-3.visible {
+        .column-3::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='redNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.3' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23redNoise)' opacity='0.6'/%3E%3C/svg%3E");
+            background-size: 130px 130px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .column-3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='fineGrain'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.8' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23fineGrain)' opacity='0.35'/%3E%3C/svg%3E");
+            background-size: 60px 60px;
             opacity: 1;
-            transform: translateX(0);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .quote {
@@ -290,6 +388,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            z-index: 2;
         }
 
         /* Texto superpuesto con diferentes tamaños */
@@ -366,17 +465,123 @@
             z-index: 3;
         }
 
-        /* Hero Section - Seccion 2 */
+        /* Hero Section - Seccion 2 - Image Comparison Slider */
         .hero-section-2 {
             position: relative;
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url('./seccion2.png');
+            background-color: var(--color-background);
+        }
+
+        .image-comparison-container {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            max-height: 600px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .comparison-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+        }
+
+        .comparison-image-before {
+            background-image: url('./raton1.jpg?v=5');
+            z-index: 1;
+        }
+
+        .comparison-image-after {
+            background-image: url('./raton2.jpg?v=5');
+            z-index: 2;
+            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+            transition: clip-path 0.3s ease;
+        }
+
+        .comparison-slider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: white;
+            cursor: ew-resize;
+            z-index: 3;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .comparison-slider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-slider::after {
+            content: '⟵ ⟶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            pointer-events: none;
+        }
+
+        .comparison-label {
+            position: absolute;
+            top: 30px;
+            font-family: var(--font-family-title);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .label-mentira {
+            left: 30px;
+            color: var(--color-primary);
+        }
+
+        .label-verdad {
+            right: 30px;
+            color: white;
+        }
+
+        .comparison-instructions {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: var(--font-family-subtitle);
+            font-size: 1rem;
+            text-align: center;
+            z-index: 4;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-shadow: none;
         }
 
         /* Section 3 - Plantación en Redes */
@@ -393,10 +598,40 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            position: relative;
+        }
+
+        .section-3 .left-column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperTexture'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperTexture)' opacity='0.45'/%3E%3C/svg%3E");
+            background-size: 180px 180px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .section-3 .left-column::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='subtleGrain'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23subtleGrain)' opacity='0.25'/%3E%3C/svg%3E");
+            background-size: 90px 90px;
+            opacity: 1;
+            pointer-events: none;
+            z-index: 2;
         }
 
         .section-3 .left-column .content {
             color: #090706;
+            position: relative;
+            z-index: 2;
         }
 
         .section-3 .left-column .subsection {
@@ -438,7 +673,7 @@
         .section-3 .right-column {
             position: relative;
             background-color: #666;
-            background-image: url('./social2.gif');
+            background-image: url('./img/s2.png?v=2');
             background-size: cover;
             background-position: center;
             padding: 4rem;
@@ -482,6 +717,171 @@
             line-height: 1.4;
         }
 
+        /* Section 4 - Amplificación Automatizada */
+        .section-3:nth-of-type(4) .left-column {
+            background-color: #666;
+            background-image: url('./img/s3.png?v=2');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .section-3:nth-of-type(4) .left-column::before {
+            background: rgba(9, 7, 6, 0.85);
+            background-image: none;
+        }
+
+        .section-3:nth-of-type(4) .left-column::after {
+            background-image: none;
+        }
+
+        .section-3:nth-of-type(4) .left-column h2 {
+            font-family: var(--font-family-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: #E95040;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-3:nth-of-type(4) .left-column .subtitle {
+            font-family: var(--font-family-serif);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.4;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-3:nth-of-type(4) .right-column {
+            background-color: white;
+            background-image: none;
+        }
+
+        .section-3:nth-of-type(4) .right-column::before {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperTexture2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperTexture2)' opacity='0.45'/%3E%3C/svg%3E");
+            background-size: 180px 180px;
+            background: white;
+        }
+
+        .section-3:nth-of-type(4) .right-column::after {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='subtleGrain2'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23subtleGrain2)' opacity='0.25'/%3E%3C/svg%3E");
+            background-size: 90px 90px;
+            background: transparent;
+        }
+
+        /* Section 5 - Difusión por Figuras o Medios */
+        .section-3:nth-of-type(5) .left-column {
+            background-color: #666;
+            background-image: url('./img/s4.png?v=2');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .section-3:nth-of-type(5) .left-column::before {
+            background: rgba(9, 7, 6, 0.85);
+            background-image: none;
+        }
+
+        .section-3:nth-of-type(5) .left-column::after {
+            background-image: none;
+        }
+
+        .section-3:nth-of-type(5) .left-column h2 {
+            font-family: var(--font-family-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: #E95040;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-3:nth-of-type(5) .left-column .subtitle {
+            font-family: var(--font-family-serif);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.4;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-3:nth-of-type(5) .right-column {
+            background-color: white;
+            background-image: none;
+        }
+
+        .section-3:nth-of-type(5) .right-column::before {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperTexture4'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperTexture4)' opacity='0.45'/%3E%3C/svg%3E");
+            background-size: 180px 180px;
+            background: white;
+        }
+
+        .section-3:nth-of-type(5) .right-column::after {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='subtleGrain4'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23subtleGrain4)' opacity='0.25'/%3E%3C/svg%3E");
+            background-size: 90px 90px;
+            background: transparent;
+        }
+
+        /* Section 6 - Recepción, Creencia y Polarización */
+        .section-3:nth-of-type(6) .left-column {
+            background-color: #666;
+            background-image: url('./img/s5.png?v=2');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .section-3:nth-of-type(6) .left-column::before {
+            background: rgba(9, 7, 6, 0.85);
+            background-image: none;
+        }
+
+        .section-3:nth-of-type(6) .left-column::after {
+            background-image: none;
+        }
+
+        .section-3:nth-of-type(6) .left-column h2 {
+            font-family: var(--font-family-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: #E95040;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-3:nth-of-type(6) .left-column .subtitle {
+            font-family: var(--font-family-serif);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.4;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-3:nth-of-type(6) .right-column {
+            background-color: white;
+            background-image: none;
+        }
+
+        .section-3:nth-of-type(6) .right-column::before {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperTexture3'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperTexture3)' opacity='0.45'/%3E%3C/svg%3E");
+            background-size: 180px 180px;
+            background: white;
+        }
+
+        .section-3:nth-of-type(6) .right-column::after {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='subtleGrain3'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23subtleGrain3)' opacity='0.25'/%3E%3C/svg%3E");
+            background-size: 90px 90px;
+            background: transparent;
+        }
+
         /* Animations */
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
@@ -501,6 +901,34 @@
                 background-attachment: scroll;
             }
             
+            .hero-section-2 {
+                height: 80vh; /* Altura reducida en mobile */
+            }
+            
+            .image-comparison-container {
+                width: 95%;
+                height: 70vh;
+            }
+            
+            .comparison-label {
+                font-size: 1.2rem;
+                top: 20px;
+            }
+            
+            .label-mentira {
+                left: 15px;
+            }
+            
+            .label-verdad {
+                right: 15px;
+            }
+            
+            .comparison-instructions {
+                font-size: 0.9rem;
+                bottom: 20px;
+                padding: 8px 16px;
+            }
+            
             .hero-title {
                 font-size: 2.5rem;
             }
@@ -516,25 +944,18 @@
                 height: auto;
             }
 
-            .background-image {
-                position: relative;
-                width: 100%;
-                height: 300px;
-                order: 2;
-            }
-
             .column-1 {
                 order: 1;
             }
 
             .column-2 {
-                order: 3;
+                order: 2;
                 transform: none;
                 opacity: 1;
             }
 
             .column-3 {
-                order: 4;
+                order: 3;
                 transform: none;
                 opacity: 1;
             }
@@ -557,8 +978,16 @@
                 padding: 2rem;
             }
 
-            .section-3 .right-column h2 {
+            .section-3 .right-column h2,
+            .section-3:nth-of-type(4) .left-column h2,
+            .section-3:nth-of-type(6) .left-column h2 {
                 font-size: 2rem;
+            }
+
+            /* Mantener imágenes en mobile */
+            .section-3:nth-of-type(4) .left-column,
+            .section-3:nth-of-type(6) .left-column {
+                background-attachment: scroll;
             }
         }
     </style>
@@ -592,14 +1021,16 @@
         <div class="columns-container">
             <!-- Column 1 - Always visible -->
             <div class="column-1">
-                <h2>1. Creación del Contenido Falso</h2>
-                <p class="objetivo">Objetivo: Fabricar una mentira con propósito claro.</p>
+                <video class="column-1-video" autoplay muted loop playsinline>
+                    <source src="./social1.mp4" type="video/mp4">
+                </video>
+                <div class="column-1-content">
+                    <h2>1. Creación del Contenido Falso</h2>
+                    <p class="objetivo">Objetivo: Fabricar una mentira con propósito claro.</p>
+                </div>
             </div>
 
-            <!-- Background Image -->
-            <div class="background-image" id="background-img"></div>
-
-            <!-- Column 2 - Hidden initially -->
+            <!-- Column 2 - Always visible -->
             <div class="column-2" id="column-2">
                 <h3>Formas comunes de creación:</h3>
                 <ul>
@@ -615,7 +1046,7 @@
                 </div>
             </div>
 
-            <!-- Column 3 - Hidden initially -->
+            <!-- Column 3 - Always visible -->
             <div class="column-3" id="column-3">
                 <div class="quote">
                     <div class="quote-overlay">
@@ -632,11 +1063,6 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Hero Section 2 -->
-    <section class="hero-section-2">
-        <!-- Content can be added here if needed -->
     </section>
 
     <!-- Section 3 - Plantación en Redes -->
@@ -668,63 +1094,118 @@
         </div>
     </section>
 
+    <!-- Section 4 - Amplificación Automatizada -->
+    <section class="section-3">
+        <div class="left-column">
+            <h2>3. Amplificación Automatizada</h2>
+            <p class="subtitle">Hacer que el contenido gane visibilidad masiva.</p>
+        </div>
+        <div class="right-column">
+            <div class="content">
+                <div class="subsection">
+                    <h3>Tácticas usadas:</h3>
+                    <ul>
+                        <li>Redes de bots o trolls sincronizados.</li>
+                        <li>Interacciones falsas (likes, comentarios, retuits).</li>
+                        <li>Uso de hashtags o frases llamativas para enganchar.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Lo que logran:</h3>
+                    <ul>
+                        <li>Engañar a los algoritmos de redes sociales.</li>
+                        <li>Crear la ilusión de consenso o interés general.</li>
+                        <li>Posicionar el contenido en trending topics o sugerencias automáticas.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Efecto final:</h3>
+                    <ul>
+                        <li>Hace que usuarios reales crean que es un tema legítimo o importante.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5 - Difusión por Figuras o Medios -->
+    <section class="section-3">
+        <div class="left-column">
+            <h2>4. Difusión por Figuras o Medios</h2>
+            <p class="subtitle">Legitimar el contenido falso ante grandes audiencias.</p>
+        </div>
+        <div class="right-column">
+            <div class="content">
+                <div class="subsection">
+                    <h3>Cómo se multiplica:</h3>
+                    <ul>
+                        <li>Influencers, periodistas o políticos comparten sin verificar.</li>
+                        <li>Medios lo retoman como "tema de discusión" o "noticia en desarrollo".</li>
+                        <li>La desinformación se presenta como válida aunque luego se desmienta.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Consecuencias:</h3>
+                    <ul>
+                        <li>Aumenta la credibilidad del bulo.</li>
+                        <li>Llega a nuevos públicos que no vieron la fuente original.</li>
+                        <li>Aunque se corrija, el daño ya está hecho.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6 - Recepción, Creencia y Polarización -->
+    <section class="section-3">
+        <div class="left-column">
+            <h2>5. Recepción, Creencia y Polarización</h2>
+            <p class="subtitle">Instalar duda, fragmentar la opinión pública y debilitar la confianza.</p>
+        </div>
+        <div class="right-column">
+            <div class="content">
+                <div class="subsection">
+                    <h3>Factores que facilitan la creencia:</h3>
+                    <ul>
+                        <li>El contenido refuerza ideas previas (sesgo de confirmación).</li>
+                        <li>Genera emociones fuertes (indignación, miedo, identidad).</li>
+                        <li>Circula entre grupos cerrados o cámaras de eco.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Efectos sociales:</h3>
+                    <ul>
+                        <li>Aumenta la polarización y la desconfianza institucional.</li>
+                        <li>Las personas comparten sin verificar porque "suena creíble".</li>
+                        <li>Las rectificaciones a veces amplifican el contenido sin querer.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section 2 - Image Comparison Slider -->
+    <section class="hero-section-2" id="hero-section-2">
+        <div class="image-comparison-container">
+            <div class="comparison-image comparison-image-before"></div>
+            <div class="comparison-image comparison-image-after"></div>
+            <div class="comparison-slider" id="comparison-slider"></div>
+            <div class="comparison-label label-mentira">MENTIRA</div>
+            <div class="comparison-label label-verdad">VERDAD</div>
+            <div class="comparison-instructions">Arrastra el control para comparar</div>
+        </div>
+    </section>
+
     <script>
         // Smooth scroll function
         function scrollToNext() {
             document.querySelector('.white-section').scrollIntoView({
                 behavior: 'smooth'
             });
-        }
-
-        // Intersection Observer for scroll animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.3,
-                rootMargin: '0px 0px -100px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = entry.target;
-                        
-                        if (target.id === 'three-columns') {
-                            // Start the animation sequence
-                            setTimeout(() => {
-                                showColumn2();
-                            }, 500);
-                            
-                            setTimeout(() => {
-                                showColumn3();
-                            }, 1300);
-                        }
-                    }
-                });
-            }, observerOptions);
-
-            // Observe the three-column section
-            const threeColumnSection = document.getElementById('three-columns');
-            if (threeColumnSection) {
-                observer.observe(threeColumnSection);
-            }
-        });
-
-        function showColumn2() {
-            const backgroundImg = document.getElementById('background-img');
-            const column2 = document.getElementById('column-2');
-            
-            // Split the background image to show only right half
-            backgroundImg.classList.add('split');
-            
-            // Show column 2
-            column2.classList.add('visible');
-        }
-
-        function showColumn3() {
-            const column3 = document.getElementById('column-3');
-            
-            // Show column 3
-            column3.classList.add('visible');
         }
 
         // Handle scroll indicator
@@ -734,6 +1215,108 @@
                 scrollIndicator.style.opacity = '0';
             } else {
                 scrollIndicator.style.opacity = '1';
+            }
+        });
+
+        // Image Comparison Slider functionality
+        function initializeImageComparison() {
+            const container = document.querySelector('.image-comparison-container');
+            const slider = document.getElementById('comparison-slider');
+            const afterImage = document.querySelector('.comparison-image-after');
+            
+            if (!container || !slider || !afterImage) return;
+            
+            let isSliding = false;
+            
+            function updateComparison(x) {
+                const containerRect = container.getBoundingClientRect();
+                const containerWidth = containerRect.width;
+                const relativeX = x - containerRect.left;
+                const percentage = Math.max(0, Math.min(100, (relativeX / containerWidth) * 100));
+                
+                // Update slider position
+                slider.style.left = percentage + '%';
+                
+                // Update clip-path for after image
+                afterImage.style.clipPath = `polygon(${percentage}% 0%, 100% 0%, 100% 100%, ${percentage}% 100%)`;
+            }
+            
+            // Mouse events
+            slider.addEventListener('mousedown', (e) => {
+                isSliding = true;
+                e.preventDefault();
+            });
+            
+            document.addEventListener('mousemove', (e) => {
+                if (isSliding) {
+                    updateComparison(e.clientX);
+                }
+            });
+            
+            document.addEventListener('mouseup', () => {
+                isSliding = false;
+            });
+            
+            // Touch events for mobile
+            slider.addEventListener('touchstart', (e) => {
+                isSliding = true;
+                e.preventDefault();
+            });
+            
+            document.addEventListener('touchmove', (e) => {
+                if (isSliding) {
+                    const touch = e.touches[0];
+                    updateComparison(touch.clientX);
+                    e.preventDefault();
+                }
+            });
+            
+            document.addEventListener('touchend', () => {
+                isSliding = false;
+            });
+            
+            // Click anywhere on container to move slider
+            container.addEventListener('click', (e) => {
+                if (e.target !== slider) {
+                    updateComparison(e.clientX);
+                }
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeImageComparison);
+
+        // Handle hero section 2 image transition on scroll
+        window.addEventListener('scroll', function() {
+            const heroSection2 = document.getElementById('hero-section-2');
+            const imageLayer2 = document.querySelector('.image-layer-2');
+            
+            if (heroSection2 && imageLayer2) {
+                const rect = heroSection2.getBoundingClientRect();
+                const sectionHeight = heroSection2.offsetHeight;
+                const windowHeight = window.innerHeight;
+                
+                // Mostrar imágenes cuando la sección está visible (incluso parcialmente)
+                if (rect.bottom > 0 && rect.top < windowHeight) {
+                    // La sección está visible - calcular progreso
+                    if (rect.top <= 0 && rect.bottom > 0) {
+                        // La sección está siendo scrolleada
+                        const scrollProgress = Math.abs(rect.top) / (sectionHeight - windowHeight);
+                        const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
+                        
+                        // p2 sube gradualmente según el scroll
+                        const translateY = 100 - (clampedProgress * 100);
+                        imageLayer2.style.transform = `translateY(${translateY}%)`;
+                    } else if (rect.top > 0) {
+                        // Sección visible pero aún no ha llegado al top - mostrar p1
+                        imageLayer2.style.transform = 'translateY(100%)';
+                    } else {
+                        // Sección ha pasado completamente - mostrar p2
+                        imageLayer2.style.transform = 'translateY(0%)';
+                    }
+                }
+                // No ocultar las imágenes cuando la sección no esté visible
+                // para evitar el espacio negro
             }
         });
     </script>
