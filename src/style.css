@@ -57,14 +57,14 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--rojo-montaje);
+  background-color: #F73331;
   z-index: 2000;
   border: none;
   padding: 0.8rem 0;
 }
 
 body.verdad-mode .preheader {
-  background-color: var(--rojo-montaje);
+  background-color: #F73331;
   border: none;
 }
 
@@ -72,6 +72,14 @@ body.verdad-mode .preheader {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preheader-logo {
+  height: 40px;
+  width: auto;
 }
 
 .nav-items {
